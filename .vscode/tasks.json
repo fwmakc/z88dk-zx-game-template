@@ -5,7 +5,7 @@
             "label": "sjasmplus",
             "type": "shell",
             "command": "cmd",
-            "args": [ "/C", "_compile.cmd" ],
+            "args": [ "/C", "compile.cmd" ],
             "problemMatcher": {
                 "fileLocation": [
                     "relative",

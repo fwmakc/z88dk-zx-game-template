@@ -1,0 +1,898 @@
+1     0000              MODULE sprites_c
+2     0000              LINE 0, "src/sprites.c"
+0     0000              
+1     0000              ;--------------------------------------------------------
+2     0000              ; File Created by SDCC : free open source ANSI-C Compiler
+3     0000              ; Version 4.0.7 #12036 (MINGW64)
+4     0000              ;--------------------------------------------------------
+5     0000              ; Processed by Z88DK
+6     0000              ;--------------------------------------------------------
+7     0000              
+8     0000              	EXTERN __divschar
+9     0000              	EXTERN __divschar_callee
+10    0000              	EXTERN __divsint
+11    0000              	EXTERN __divsint_callee
+12    0000              	EXTERN __divslong
+13    0000              	EXTERN __divslong_callee
+14    0000              	EXTERN __divslonglong
+15    0000              	EXTERN __divslonglong_callee
+16    0000              	EXTERN __divsuchar
+17    0000              	EXTERN __divsuchar_callee
+18    0000              	EXTERN __divuchar
+19    0000              	EXTERN __divuchar_callee
+20    0000              	EXTERN __divuint
+21    0000              	EXTERN __divuint_callee
+22    0000              	EXTERN __divulong
+23    0000              	EXTERN __divulong_callee
+24    0000              	EXTERN __divulonglong
+25    0000              	EXTERN __divulonglong_callee
+26    0000              	EXTERN __divuschar
+27    0000              	EXTERN __divuschar_callee
+28    0000              	EXTERN __modschar
+29    0000              	EXTERN __modschar_callee
+30    0000              	EXTERN __modsint
+31    0000              	EXTERN __modsint_callee
+32    0000              	EXTERN __modslong
+33    0000              	EXTERN __modslong_callee
+34    0000              	EXTERN __modslonglong
+35    0000              	EXTERN __modslonglong_callee
+36    0000              	EXTERN __modsuchar
+37    0000              	EXTERN __modsuchar_callee
+38    0000              	EXTERN __moduchar
+39    0000              	EXTERN __moduchar_callee
+40    0000              	EXTERN __moduint
+41    0000              	EXTERN __moduint_callee
+42    0000              	EXTERN __modulong
+43    0000              	EXTERN __modulong_callee
+44    0000              	EXTERN __modulonglong
+45    0000              	EXTERN __modulonglong_callee
+46    0000              	EXTERN __moduschar
+47    0000              	EXTERN __moduschar_callee
+48    0000              	EXTERN __mulint
+49    0000              	EXTERN __mulint_callee
+50    0000              	EXTERN __mullong
+51    0000              	EXTERN __mullong_callee
+52    0000              	EXTERN __mullonglong
+53    0000              	EXTERN __mullonglong_callee
+54    0000              	EXTERN __mulschar
+55    0000              	EXTERN __mulschar_callee
+56    0000              	EXTERN __mulsuchar
+57    0000              	EXTERN __mulsuchar_callee
+58    0000              	EXTERN __muluchar
+59    0000              	EXTERN __muluchar_callee
+60    0000              	EXTERN __muluschar
+61    0000              	EXTERN __muluschar_callee
+62    0000              	EXTERN __rlslonglong
+63    0000              	EXTERN __rlslonglong_callee
+64    0000              	EXTERN __rlulonglong
+65    0000              	EXTERN __rlulonglong_callee
+66    0000              	EXTERN __rrslonglong
+67    0000              	EXTERN __rrslonglong_callee
+68    0000              	EXTERN __rrulonglong
+69    0000              	EXTERN __rrulonglong_callee
+70    0000              	EXTERN ___sdcc_call_hl
+71    0000              	EXTERN ___sdcc_call_iy
+72    0000              	EXTERN ___sdcc_enter_ix
+73    0000              	EXTERN banked_call
+74    0000              	EXTERN _banked_ret
+75    0000              	EXTERN ___fs2schar
+76    0000              	EXTERN ___fs2schar_callee
+77    0000              	EXTERN ___fs2sint
+78    0000              	EXTERN ___fs2sint_callee
+79    0000              	EXTERN ___fs2slong
+80    0000              	EXTERN ___fs2slong_callee
+81    0000              	EXTERN ___fs2slonglong
+82    0000              	EXTERN ___fs2slonglong_callee
+83    0000              	EXTERN ___fs2uchar
+84    0000              	EXTERN ___fs2uchar_callee
+85    0000              	EXTERN ___fs2uint
+86    0000              	EXTERN ___fs2uint_callee
+87    0000              	EXTERN ___fs2ulong
+88    0000              	EXTERN ___fs2ulong_callee
+89    0000              	EXTERN ___fs2ulonglong
+90    0000              	EXTERN ___fs2ulonglong_callee
+91    0000              	EXTERN ___fsadd
+92    0000              	EXTERN ___fsadd_callee
+93    0000              	EXTERN ___fsdiv
+94    0000              	EXTERN ___fsdiv_callee
+95    0000              	EXTERN ___fseq
+96    0000              	EXTERN ___fseq_callee
+97    0000              	EXTERN ___fsgt
+98    0000              	EXTERN ___fsgt_callee
+99    0000              	EXTERN ___fslt
+100   0000              	EXTERN ___fslt_callee
+101   0000              	EXTERN ___fsmul
+102   0000              	EXTERN ___fsmul_callee
+103   0000              	EXTERN ___fsneq
+104   0000              	EXTERN ___fsneq_callee
+105   0000              	EXTERN ___fssub
+106   0000              	EXTERN ___fssub_callee
+107   0000              	EXTERN ___schar2fs
+108   0000              	EXTERN ___schar2fs_callee
+109   0000              	EXTERN ___sint2fs
+110   0000              	EXTERN ___sint2fs_callee
+111   0000              	EXTERN ___slong2fs
+112   0000              	EXTERN ___slong2fs_callee
+113   0000              	EXTERN ___slonglong2fs
+114   0000              	EXTERN ___slonglong2fs_callee
+115   0000              	EXTERN ___uchar2fs
+116   0000              	EXTERN ___uchar2fs_callee
+117   0000              	EXTERN ___uint2fs
+118   0000              	EXTERN ___uint2fs_callee
+119   0000              	EXTERN ___ulong2fs
+120   0000              	EXTERN ___ulong2fs_callee
+121   0000              	EXTERN ___ulonglong2fs
+122   0000              	EXTERN ___ulonglong2fs_callee
+123   0000              	EXTERN ____sdcc_2_copy_src_mhl_dst_deix
+124   0000              	EXTERN ____sdcc_2_copy_src_mhl_dst_bcix
+125   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_deix
+126   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_bcix
+127   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_mbc
+128   0000              	EXTERN ____sdcc_4_ldi_nosave_bc
+129   0000              	EXTERN ____sdcc_4_ldi_save_bc
+130   0000              	EXTERN ____sdcc_4_push_hlix
+131   0000              	EXTERN ____sdcc_4_push_mhl
+132   0000              	EXTERN ____sdcc_lib_setmem_hl
+133   0000              	EXTERN ____sdcc_ll_add_de_bc_hl
+134   0000              	EXTERN ____sdcc_ll_add_de_bc_hlix
+135   0000              	EXTERN ____sdcc_ll_add_de_hlix_bc
+136   0000              	EXTERN ____sdcc_ll_add_de_hlix_bcix
+137   0000              	EXTERN ____sdcc_ll_add_deix_bc_hl
+138   0000              	EXTERN ____sdcc_ll_add_deix_hlix
+139   0000              	EXTERN ____sdcc_ll_add_hlix_bc_deix
+140   0000              	EXTERN ____sdcc_ll_add_hlix_deix_bc
+141   0000              	EXTERN ____sdcc_ll_add_hlix_deix_bcix
+142   0000              	EXTERN ____sdcc_ll_asr_hlix_a
+143   0000              	EXTERN ____sdcc_ll_asr_mbc_a
+144   0000              	EXTERN ____sdcc_ll_copy_src_de_dst_hlix
+145   0000              	EXTERN ____sdcc_ll_copy_src_de_dst_hlsp
+146   0000              	EXTERN ____sdcc_ll_copy_src_deix_dst_hl
+147   0000              	EXTERN ____sdcc_ll_copy_src_deix_dst_hlix
+148   0000              	EXTERN ____sdcc_ll_copy_src_deixm_dst_hlsp
+149   0000              	EXTERN ____sdcc_ll_copy_src_desp_dst_hlsp
+150   0000              	EXTERN ____sdcc_ll_copy_src_hl_dst_de
+151   0000              	EXTERN ____sdcc_ll_copy_src_hlsp_dst_de
+152   0000              	EXTERN ____sdcc_ll_copy_src_hlsp_dst_deixm
+153   0000              	EXTERN ____sdcc_ll_lsl_hlix_a
+154   0000              	EXTERN ____sdcc_ll_lsl_mbc_a
+155   0000              	EXTERN ____sdcc_ll_lsr_hlix_a
+156   0000              	EXTERN ____sdcc_ll_lsr_mbc_a
+157   0000              	EXTERN ____sdcc_ll_push_hlix
+158   0000              	EXTERN ____sdcc_ll_push_mhl
+159   0000              	EXTERN ____sdcc_ll_sub_de_bc_hl
+160   0000              	EXTERN ____sdcc_ll_sub_de_bc_hlix
+161   0000              	EXTERN ____sdcc_ll_sub_de_hlix_bc
+162   0000              	EXTERN ____sdcc_ll_sub_de_hlix_bcix
+163   0000              	EXTERN ____sdcc_ll_sub_deix_bc_hl
+164   0000              	EXTERN ____sdcc_ll_sub_deix_hlix
+165   0000              	EXTERN ____sdcc_ll_sub_hlix_bc_deix
+166   0000              	EXTERN ____sdcc_ll_sub_hlix_deix_bc
+167   0000              	EXTERN ____sdcc_ll_sub_hlix_deix_bcix
+168   0000              	EXTERN ____sdcc_load_debc_deix
+169   0000              	EXTERN ____sdcc_load_dehl_deix
+170   0000              	EXTERN ____sdcc_load_debc_mhl
+171   0000              	EXTERN ____sdcc_load_hlde_mhl
+172   0000              	EXTERN ____sdcc_store_dehl_bcix
+173   0000              	EXTERN ____sdcc_store_debc_hlix
+174   0000              	EXTERN ____sdcc_store_debc_mhl
+175   0000              	EXTERN ____sdcc_cpu_pop_ei
+176   0000              	EXTERN ____sdcc_cpu_pop_ei_jp
+177   0000              	EXTERN ____sdcc_cpu_push_di
+178   0000              	EXTERN ____sdcc_outi
+179   0000              	EXTERN ____sdcc_outi_128
+180   0000              	EXTERN ____sdcc_outi_256
+181   0000              	EXTERN ____sdcc_ldi
+182   0000              	EXTERN ____sdcc_ldi_128
+183   0000              	EXTERN ____sdcc_ldi_256
+184   0000              	EXTERN ____sdcc_4_copy_srcd_hlix_dst_deix
+185   0000              	EXTERN ____sdcc_4_and_src_mbc_mhl_dst_deix
+186   0000              	EXTERN ____sdcc_4_or_src_mbc_mhl_dst_deix
+187   0000              	EXTERN ____sdcc_4_xor_src_mbc_mhl_dst_deix
+188   0000              	EXTERN ____sdcc_4_or_src_dehl_dst_bcix
+189   0000              	EXTERN ____sdcc_4_xor_src_dehl_dst_bcix
+190   0000              	EXTERN ____sdcc_4_and_src_dehl_dst_bcix
+191   0000              	EXTERN ____sdcc_4_xor_src_mbc_mhl_dst_debc
+192   0000              	EXTERN ____sdcc_4_or_src_mbc_mhl_dst_debc
+193   0000              	EXTERN ____sdcc_4_and_src_mbc_mhl_dst_debc
+194   0000              	EXTERN ____sdcc_4_cpl_src_mhl_dst_debc
+195   0000              	EXTERN ____sdcc_4_xor_src_debc_mhl_dst_debc
+196   0000              	EXTERN ____sdcc_4_or_src_debc_mhl_dst_debc
+197   0000              	EXTERN ____sdcc_4_and_src_debc_mhl_dst_debc
+198   0000              	EXTERN ____sdcc_4_and_src_debc_hlix_dst_debc
+199   0000              	EXTERN ____sdcc_4_or_src_debc_hlix_dst_debc
+200   0000              	EXTERN ____sdcc_4_xor_src_debc_hlix_dst_debc
+201   0000              
+202   0000              ;--------------------------------------------------------
+203   0000              ; Public variables in this module
+204   0000              ;--------------------------------------------------------
+205   0000              	GLOBAL _FullScreen
+206   0000              	GLOBAL _InitSprites
+207   0000              	GLOBAL _CreateSprite8x8
+208   0000              	GLOBAL _CreateMaskedSprite16x16
+209   0000              	GLOBAL _PutSprite
+210   0000              ;--------------------------------------------------------
+211   0000              ; Externals used
+212   0000              ;--------------------------------------------------------
+213   0000              	GLOBAL _ffsll_callee
+214   0000              	GLOBAL _ffsll
+215   0000              	GLOBAL _strxfrm_callee
+216   0000              	GLOBAL _strxfrm
+217   0000              	GLOBAL _strupr_fastcall
+218   0000              	GLOBAL _strupr
+219   0000              	GLOBAL _strtok_r_callee
+220   0000              	GLOBAL _strtok_r
+221   0000              	GLOBAL _strtok_callee
+222   0000              	GLOBAL _strtok
+223   0000              	GLOBAL _strstrip_fastcall
+224   0000              	GLOBAL _strstrip
+225   0000              	GLOBAL _strstr_callee
+226   0000              	GLOBAL _strstr
+227   0000              	GLOBAL _strspn_callee
+228   0000              	GLOBAL _strspn
+229   0000              	GLOBAL _strsep_callee
+230   0000              	GLOBAL _strsep
+231   0000              	GLOBAL _strrstrip_fastcall
+232   0000              	GLOBAL _strrstrip
+233   0000              	GLOBAL _strrstr_callee
+234   0000              	GLOBAL _strrstr
+235   0000              	GLOBAL _strrspn_callee
+236   0000              	GLOBAL _strrspn
+237   0000              	GLOBAL _strrev_fastcall
+238   0000              	GLOBAL _strrev
+239   0000              	GLOBAL _strrcspn_callee
+240   0000              	GLOBAL _strrcspn
+241   0000              	GLOBAL _strrchr_callee
+242   0000              	GLOBAL _strrchr
+243   0000              	GLOBAL _strpbrk_callee
+244   0000              	GLOBAL _strpbrk
+245   0000              	GLOBAL _strnlen_callee
+246   0000              	GLOBAL _strnlen
+247   0000              	GLOBAL _strnicmp_callee
+248   0000              	GLOBAL _strnicmp
+249   0000              	GLOBAL _strndup_callee
+250   0000              	GLOBAL _strndup
+251   0000              	GLOBAL _strncpy_callee
+252   0000              	GLOBAL _strncpy
+253   0000              	GLOBAL _strncmp_callee
+254   0000              	GLOBAL _strncmp
+255   0000              	GLOBAL _strnchr_callee
+256   0000              	GLOBAL _strnchr
+257   0000              	GLOBAL _strncat_callee
+258   0000              	GLOBAL _strncat
+259   0000              	GLOBAL _strncasecmp_callee
+260   0000              	GLOBAL _strncasecmp
+261   0000              	GLOBAL _strlwr_fastcall
+262   0000              	GLOBAL _strlwr
+263   0000              	GLOBAL _strlen_fastcall
+264   0000              	GLOBAL _strlen
+265   0000              	GLOBAL _strlcpy_callee
+266   0000              	GLOBAL _strlcpy
+267   0000              	GLOBAL _strlcat_callee
+268   0000              	GLOBAL _strlcat
+269   0000              	GLOBAL _stricmp_callee
+270   0000              	GLOBAL _stricmp
+271   0000              	GLOBAL _strerror_fastcall
+272   0000              	GLOBAL _strerror
+273   0000              	GLOBAL _strdup_fastcall
+274   0000              	GLOBAL _strdup
+275   0000              	GLOBAL _strcspn_callee
+276   0000              	GLOBAL _strcspn
+277   0000              	GLOBAL _strcpy_callee
+278   0000              	GLOBAL _strcpy
+279   0000              	GLOBAL _strcoll_callee
+280   0000              	GLOBAL _strcoll
+281   0000              	GLOBAL _strcmp_callee
+282   0000              	GLOBAL _strcmp
+283   0000              	GLOBAL _strchrnul_callee
+284   0000              	GLOBAL _strchrnul
+285   0000              	GLOBAL _strchr_callee
+286   0000              	GLOBAL _strchr
+287   0000              	GLOBAL _strcat_callee
+288   0000              	GLOBAL _strcat
+289   0000              	GLOBAL _strcasecmp_callee
+290   0000              	GLOBAL _strcasecmp
+291   0000              	GLOBAL _stpncpy_callee
+292   0000              	GLOBAL _stpncpy
+293   0000              	GLOBAL _stpcpy_callee
+294   0000              	GLOBAL _stpcpy
+295   0000              	GLOBAL _memswap_callee
+296   0000              	GLOBAL _memswap
+297   0000              	GLOBAL _memset_callee
+298   0000              	GLOBAL _memset
+299   0000              	GLOBAL _memrchr_callee
+300   0000              	GLOBAL _memrchr
+301   0000              	GLOBAL _memmove_callee
+302   0000              	GLOBAL _memmove
+303   0000              	GLOBAL _memmem_callee
+304   0000              	GLOBAL _memmem
+305   0000              	GLOBAL _memcpy_callee
+306   0000              	GLOBAL _memcpy
+307   0000              	GLOBAL _memcmp_callee
+308   0000              	GLOBAL _memcmp
+309   0000              	GLOBAL _memchr_callee
+310   0000              	GLOBAL _memchr
+311   0000              	GLOBAL _memccpy_callee
+312   0000              	GLOBAL _memccpy
+313   0000              	GLOBAL _ffsl_fastcall
+314   0000              	GLOBAL _ffsl
+315   0000              	GLOBAL _ffs_fastcall
+316   0000              	GLOBAL _ffs
+317   0000              	GLOBAL __strrstrip__fastcall
+318   0000              	GLOBAL __strrstrip_
+319   0000              	GLOBAL __memupr__callee
+320   0000              	GLOBAL __memupr_
+321   0000              	GLOBAL __memstrcpy__callee
+322   0000              	GLOBAL __memstrcpy_
+323   0000              	GLOBAL __memlwr__callee
+324   0000              	GLOBAL __memlwr_
+325   0000              	GLOBAL _rawmemchr_callee
+326   0000              	GLOBAL _rawmemchr
+327   0000              	GLOBAL _strnset_callee
+328   0000              	GLOBAL _strnset
+329   0000              	GLOBAL _strset_callee
+330   0000              	GLOBAL _strset
+331   0000              	GLOBAL _rindex_callee
+332   0000              	GLOBAL _rindex
+333   0000              	GLOBAL _index_callee
+334   0000              	GLOBAL _index
+335   0000              	GLOBAL _bzero_callee
+336   0000              	GLOBAL _bzero
+337   0000              	GLOBAL _bcopy_callee
+338   0000              	GLOBAL _bcopy
+339   0000              	GLOBAL _bcmp_callee
+340   0000              	GLOBAL _bcmp
+341   0000              	GLOBAL _in_mouse_kempston_wheel_delta
+342   0000              	GLOBAL _in_mouse_kempston_wheel
+343   0000              	GLOBAL _in_mouse_kempston_callee
+344   0000              	GLOBAL _in_mouse_kempston
+345   0000              	GLOBAL _in_mouse_kempston_setpos_callee
+346   0000              	GLOBAL _in_mouse_kempston_setpos
+347   0000              	GLOBAL _in_mouse_kempston_reset
+348   0000              	GLOBAL _in_mouse_kempston_init
+349   0000              	GLOBAL _in_mouse_amx_wheel_delta
+350   0000              	GLOBAL _in_mouse_amx_wheel
+351   0000              	GLOBAL _in_mouse_amx_callee
+352   0000              	GLOBAL _in_mouse_amx
+353   0000              	GLOBAL _in_mouse_amx_setpos_callee
+354   0000              	GLOBAL _in_mouse_amx_setpos
+355   0000              	GLOBAL _in_mouse_amx_reset
+356   0000              	GLOBAL _in_mouse_amx_init_callee
+357   0000              	GLOBAL _in_mouse_amx_init
+358   0000              	GLOBAL _in_stick_sinclair2
+359   0000              	GLOBAL _in_stick_sinclair1
+360   0000              	GLOBAL _in_stick_kempston
+361   0000              	GLOBAL _in_stick_fuller
+362   0000              	GLOBAL _in_stick_cursor
+363   0000              	GLOBAL _in_stick_keyboard_fastcall
+364   0000              	GLOBAL _in_stick_keyboard
+365   0000              	GLOBAL _in_wait_nokey
+366   0000              	GLOBAL _in_wait_key
+367   0000              	GLOBAL _in_test_key
+368   0000              	GLOBAL _in_pause_fastcall
+369   0000              	GLOBAL _in_pause
+370   0000              	GLOBAL _in_key_scancode_fastcall
+371   0000              	GLOBAL _in_key_scancode
+372   0000              	GLOBAL _in_key_pressed_fastcall
+373   0000              	GLOBAL _in_key_pressed
+374   0000              	GLOBAL _in_inkey
+375   0000              	GLOBAL _bfx_57
+376   0000              	GLOBAL _bfx_56
+377   0000              	GLOBAL _bfx_55
+378   0000              	GLOBAL _bfx_54
+379   0000              	GLOBAL _bfx_53
+380   0000              	GLOBAL _bfx_52
+381   0000              	GLOBAL _bfx_51
+382   0000              	GLOBAL _bfx_50
+383   0000              	GLOBAL _bfx_49
+384   0000              	GLOBAL _bfx_48
+385   0000              	GLOBAL _bfx_47
+386   0000              	GLOBAL _bfx_46
+387   0000              	GLOBAL _bfx_45
+388   0000              	GLOBAL _bfx_44
+389   0000              	GLOBAL _bfx_43
+390   0000              	GLOBAL _bfx_42
+391   0000              	GLOBAL _bfx_41
+392   0000              	GLOBAL _bfx_40
+393   0000              	GLOBAL _bfx_39
+394   0000              	GLOBAL _bfx_38
+395   0000              	GLOBAL _bfx_37
+396   0000              	GLOBAL _bfx_36
+397   0000              	GLOBAL _bfx_35
+398   0000              	GLOBAL _bfx_34
+399   0000              	GLOBAL _bfx_33
+400   0000              	GLOBAL _bfx_32
+401   0000              	GLOBAL _bfx_31
+402   0000              	GLOBAL _bfx_30
+403   0000              	GLOBAL _bfx_29
+404   0000              	GLOBAL _bfx_28
+405   0000              	GLOBAL _bfx_27
+406   0000              	GLOBAL _bfx_26
+407   0000              	GLOBAL _bfx_25
+408   0000              	GLOBAL _bfx_24
+409   0000              	GLOBAL _bfx_23
+410   0000              	GLOBAL _bfx_22
+411   0000              	GLOBAL _bfx_21
+412   0000              	GLOBAL _bfx_20
+413   0000              	GLOBAL _bfx_19
+414   0000              	GLOBAL _bfx_18
+415   0000              	GLOBAL _bfx_17
+416   0000              	GLOBAL _bfx_16
+417   0000              	GLOBAL _bfx_15
+418   0000              	GLOBAL _bfx_14
+419   0000              	GLOBAL _bfx_13
+420   0000              	GLOBAL _bfx_12
+421   0000              	GLOBAL _bfx_11
+422   0000              	GLOBAL _bfx_10
+423   0000              	GLOBAL _bfx_9
+424   0000              	GLOBAL _bfx_8
+425   0000              	GLOBAL _bfx_7
+426   0000              	GLOBAL _bfx_6
+427   0000              	GLOBAL _bfx_5
+428   0000              	GLOBAL _bfx_4
+429   0000              	GLOBAL _bfx_3
+430   0000              	GLOBAL _bfx_2
+431   0000              	GLOBAL _bfx_1
+432   0000              	GLOBAL _bfx_0
+433   0000              	GLOBAL _bitfx_31
+434   0000              	GLOBAL _bitfx_30
+435   0000              	GLOBAL _bitfx_29
+436   0000              	GLOBAL _bitfx_28
+437   0000              	GLOBAL _bitfx_27
+438   0000              	GLOBAL _bitfx_26
+439   0000              	GLOBAL _bitfx_25
+440   0000              	GLOBAL _bitfx_24
+441   0000              	GLOBAL _bitfx_23
+442   0000              	GLOBAL _bitfx_22
+443   0000              	GLOBAL _bitfx_21
+444   0000              	GLOBAL _bitfx_20
+445   0000              	GLOBAL _bitfx_19
+446   0000              	GLOBAL _bitfx_18
+447   0000              	GLOBAL _bitfx_17
+448   0000              	GLOBAL _bitfx_16
+449   0000              	GLOBAL _bitfx_15
+450   0000              	GLOBAL _bitfx_14
+451   0000              	GLOBAL _bitfx_13
+452   0000              	GLOBAL _bitfx_12
+453   0000              	GLOBAL _bitfx_11
+454   0000              	GLOBAL _bitfx_10
+455   0000              	GLOBAL _bitfx_9
+456   0000              	GLOBAL _bitfx_8
+457   0000              	GLOBAL _bitfx_7
+458   0000              	GLOBAL _bitfx_6
+459   0000              	GLOBAL _bitfx_5
+460   0000              	GLOBAL _bitfx_4
+461   0000              	GLOBAL _bitfx_3
+462   0000              	GLOBAL _bitfx_2
+463   0000              	GLOBAL _bitfx_1
+464   0000              	GLOBAL _bitfx_0
+465   0000              	GLOBAL _bit_synth_di_callee
+466   0000              	GLOBAL _bit_synth_di
+467   0000              	GLOBAL _bit_play_tritone_di_fastcall
+468   0000              	GLOBAL _bit_play_tritone_di
+469   0000              	GLOBAL _bit_play_di_fastcall
+470   0000              	GLOBAL _bit_play_di
+471   0000              	GLOBAL _bit_beepfx_di_fastcall
+472   0000              	GLOBAL _bit_beepfx_di
+473   0000              	GLOBAL _bit_fx_di_fastcall
+474   0000              	GLOBAL _bit_fx_di
+475   0000              	GLOBAL _bit_click_di
+476   0000              	GLOBAL _bit_beep_raw_di_callee
+477   0000              	GLOBAL _bit_beep_raw_di
+478   0000              	GLOBAL _bit_beep_di_callee
+479   0000              	GLOBAL _bit_beep_di
+480   0000              	GLOBAL _bit_synth_callee
+481   0000              	GLOBAL _bit_synth
+482   0000              	GLOBAL _bit_play_tritone_fastcall
+483   0000              	GLOBAL _bit_play_tritone
+484   0000              	GLOBAL _bit_play_fastcall
+485   0000              	GLOBAL _bit_play
+486   0000              	GLOBAL _bit_beepfx_fastcall
+487   0000              	GLOBAL _bit_beepfx
+488   0000              	GLOBAL _bit_fx_fastcall
+489   0000              	GLOBAL _bit_fx
+490   0000              	GLOBAL _bit_click
+491   0000              	GLOBAL _bit_beep_raw_callee
+492   0000              	GLOBAL _bit_beep_raw
+493   0000              	GLOBAL _bit_beep_callee
+494   0000              	GLOBAL _bit_beep
+495   0000              	GLOBAL _sp1_Validate_fastcall
+496   0000              	GLOBAL _sp1_Validate
+497   0000              	GLOBAL _sp1_Invalidate_fastcall
+498   0000              	GLOBAL _sp1_Invalidate
+499   0000              	GLOBAL _sp1_RestoreUpdateStruct_fastcall
+500   0000              	GLOBAL _sp1_RestoreUpdateStruct
+501   0000              	GLOBAL _sp1_RemoveUpdateStruct_fastcall
+502   0000              	GLOBAL _sp1_RemoveUpdateStruct
+503   0000              	GLOBAL _sp1_DrawUpdateStructAlways_fastcall
+504   0000              	GLOBAL _sp1_DrawUpdateStructAlways
+505   0000              	GLOBAL _sp1_DrawUpdateStructIfNotRem_fastcall
+506   0000              	GLOBAL _sp1_DrawUpdateStructIfNotRem
+507   0000              	GLOBAL _sp1_DrawUpdateStructIfVal_fastcall
+508   0000              	GLOBAL _sp1_DrawUpdateStructIfVal
+509   0000              	GLOBAL _sp1_DrawUpdateStructIfInv_fastcall
+510   0000              	GLOBAL _sp1_DrawUpdateStructIfInv
+511   0000              	GLOBAL _sp1_ValUpdateStruct_fastcall
+512   0000              	GLOBAL _sp1_ValUpdateStruct
+513   0000              	GLOBAL _sp1_InvUpdateStruct_fastcall
+514   0000              	GLOBAL _sp1_InvUpdateStruct
+515   0000              	GLOBAL _sp1_IterateUpdateRect_callee
+516   0000              	GLOBAL _sp1_IterateUpdateRect
+517   0000              	GLOBAL _sp1_IterateUpdateArr_callee
+518   0000              	GLOBAL _sp1_IterateUpdateArr
+519   0000              	GLOBAL _sp1_GetUpdateStruct_callee
+520   0000              	GLOBAL _sp1_GetUpdateStruct
+521   0000              	GLOBAL _sp1_UpdateNow
+522   0000              	GLOBAL _sp1_Initialize_callee
+523   0000              	GLOBAL _sp1_Initialize
+524   0000              	GLOBAL _sp1_ClearRectInv_callee
+525   0000              	GLOBAL _sp1_ClearRectInv
+526   0000              	GLOBAL _sp1_ClearRect_callee
+527   0000              	GLOBAL _sp1_ClearRect
+528   0000              	GLOBAL _sp1_PutTilesInv_callee
+529   0000              	GLOBAL _sp1_PutTilesInv
+530   0000              	GLOBAL _sp1_PutTiles_callee
+531   0000              	GLOBAL _sp1_PutTiles
+532   0000              	GLOBAL _sp1_GetTiles_callee
+533   0000              	GLOBAL _sp1_GetTiles
+534   0000              	GLOBAL _sp1_SetPrintPos_callee
+535   0000              	GLOBAL _sp1_SetPrintPos
+536   0000              	GLOBAL _sp1_PrintString_callee
+537   0000              	GLOBAL _sp1_PrintString
+538   0000              	GLOBAL _sp1_ScreenAttr_callee
+539   0000              	GLOBAL _sp1_ScreenAttr
+540   0000              	GLOBAL _sp1_ScreenStr_callee
+541   0000              	GLOBAL _sp1_ScreenStr
+542   0000              	GLOBAL _sp1_PrintAtInv_callee
+543   0000              	GLOBAL _sp1_PrintAtInv
+544   0000              	GLOBAL _sp1_PrintAt_callee
+545   0000              	GLOBAL _sp1_PrintAt
+546   0000              	GLOBAL _sp1_TileEntry_callee
+547   0000              	GLOBAL _sp1_TileEntry
+548   0000              	GLOBAL _sp1_RemoveCharStruct_fastcall
+549   0000              	GLOBAL _sp1_RemoveCharStruct
+550   0000              	GLOBAL _sp1_InsertCharStruct_callee
+551   0000              	GLOBAL _sp1_InsertCharStruct
+552   0000              	GLOBAL _sp1_InitCharStruct_callee
+553   0000              	GLOBAL _sp1_InitCharStruct
+554   0000              	GLOBAL _sp1_PreShiftSpr_callee
+555   0000              	GLOBAL _sp1_PreShiftSpr
+556   0000              	GLOBAL _sp1_GetSprClr_callee
+557   0000              	GLOBAL _sp1_GetSprClr
+558   0000              	GLOBAL _sp1_PutSprClr_callee
+559   0000              	GLOBAL _sp1_PutSprClr
+560   0000              	GLOBAL _sp1_GetSprClrAddr_callee
+561   0000              	GLOBAL _sp1_GetSprClrAddr
+562   0000              	GLOBAL _sp1_IterateUpdateSpr_callee
+563   0000              	GLOBAL _sp1_IterateUpdateSpr
+564   0000              	GLOBAL _sp1_IterateSprChar_callee
+565   0000              	GLOBAL _sp1_IterateSprChar
+566   0000              	GLOBAL _sp1_MoveSprPix_callee
+567   0000              	GLOBAL _sp1_MoveSprPix
+568   0000              	GLOBAL _sp1_MoveSprRel_callee
+569   0000              	GLOBAL _sp1_MoveSprRel
+570   0000              	GLOBAL _sp1_MoveSprAbs_callee
+571   0000              	GLOBAL _sp1_MoveSprAbs
+572   0000              	GLOBAL _sp1_DeleteSpr_fastcall
+573   0000              	GLOBAL _sp1_DeleteSpr
+574   0000              	GLOBAL _sp1_ChangeSprType_callee
+575   0000              	GLOBAL _sp1_ChangeSprType
+576   0000              	GLOBAL _sp1_AddColSpr_callee
+577   0000              	GLOBAL _sp1_AddColSpr
+578   0000              	GLOBAL _sp1_CreateSpr_callee
+579   0000              	GLOBAL _sp1_CreateSpr
+580   0000              	GLOBAL _SP1_DRAW_ATTR
+581   0000              	GLOBAL _SP1_DRAW_LOAD1RBIM
+582   0000              	GLOBAL _SP1_DRAW_LOAD1LBIM
+583   0000              	GLOBAL _SP1_DRAW_XOR1RB
+584   0000              	GLOBAL _SP1_DRAW_XOR1LB
+585   0000              	GLOBAL _SP1_DRAW_XOR1NR
+586   0000              	GLOBAL _SP1_DRAW_XOR1
+587   0000              	GLOBAL _SP1_DRAW_OR1RB
+588   0000              	GLOBAL _SP1_DRAW_OR1LB
+589   0000              	GLOBAL _SP1_DRAW_OR1NR
+590   0000              	GLOBAL _SP1_DRAW_OR1
+591   0000              	GLOBAL _SP1_DRAW_LOAD1RB
+592   0000              	GLOBAL _SP1_DRAW_LOAD1LB
+593   0000              	GLOBAL _SP1_DRAW_LOAD1NR
+594   0000              	GLOBAL _SP1_DRAW_LOAD1
+595   0000              	GLOBAL _SP1_DRAW_LOAD2RBIM
+596   0000              	GLOBAL _SP1_DRAW_LOAD2LBIM
+597   0000              	GLOBAL _SP1_DRAW_XOR2RB
+598   0000              	GLOBAL _SP1_DRAW_XOR2LB
+599   0000              	GLOBAL _SP1_DRAW_XOR2NR
+600   0000              	GLOBAL _SP1_DRAW_XOR2
+601   0000              	GLOBAL _SP1_DRAW_OR2RB
+602   0000              	GLOBAL _SP1_DRAW_OR2LB
+603   0000              	GLOBAL _SP1_DRAW_OR2NR
+604   0000              	GLOBAL _SP1_DRAW_OR2
+605   0000              	GLOBAL _SP1_DRAW_LOAD2RB
+606   0000              	GLOBAL _SP1_DRAW_LOAD2LB
+607   0000              	GLOBAL _SP1_DRAW_LOAD2NR
+608   0000              	GLOBAL _SP1_DRAW_LOAD2
+609   0000              	GLOBAL _SP1_DRAW_MASK2RB
+610   0000              	GLOBAL _SP1_DRAW_MASK2LB
+611   0000              	GLOBAL _SP1_DRAW_MASK2NR
+612   0000              	GLOBAL _SP1_DRAW_MASK2
+613   0000              	GLOBAL _zx_pattern_fill_callee
+614   0000              	GLOBAL _zx_pattern_fill
+615   0000              	GLOBAL _zx_saddrpup_fastcall
+616   0000              	GLOBAL _zx_saddrpup
+617   0000              	GLOBAL _zx_saddrpright_callee
+618   0000              	GLOBAL _zx_saddrpright
+619   0000              	GLOBAL _zx_saddrpleft_callee
+620   0000              	GLOBAL _zx_saddrpleft
+621   0000              	GLOBAL _zx_saddrpdown_fastcall
+622   0000              	GLOBAL _zx_saddrpdown
+623   0000              	GLOBAL _zx_saddrcup_fastcall
+624   0000              	GLOBAL _zx_saddrcup
+625   0000              	GLOBAL _zx_saddrcright_fastcall
+626   0000              	GLOBAL _zx_saddrcright
+627   0000              	GLOBAL _zx_saddrcleft_fastcall
+628   0000              	GLOBAL _zx_saddrcleft
+629   0000              	GLOBAL _zx_saddrcdown_fastcall
+630   0000              	GLOBAL _zx_saddrcdown
+631   0000              	GLOBAL _zx_saddr2py_fastcall
+632   0000              	GLOBAL _zx_saddr2py
+633   0000              	GLOBAL _zx_saddr2px_fastcall
+634   0000              	GLOBAL _zx_saddr2px
+635   0000              	GLOBAL _zx_saddr2cy_fastcall
+636   0000              	GLOBAL _zx_saddr2cy
+637   0000              	GLOBAL _zx_saddr2cx_fastcall
+638   0000              	GLOBAL _zx_saddr2cx
+639   0000              	GLOBAL _zx_saddr2aaddr_fastcall
+640   0000              	GLOBAL _zx_saddr2aaddr
+641   0000              	GLOBAL _zx_py2saddr_fastcall
+642   0000              	GLOBAL _zx_py2saddr
+643   0000              	GLOBAL _zx_py2aaddr_fastcall
+644   0000              	GLOBAL _zx_py2aaddr
+645   0000              	GLOBAL _zx_pxy2saddr_callee
+646   0000              	GLOBAL _zx_pxy2saddr
+647   0000              	GLOBAL _zx_pxy2aaddr_callee
+648   0000              	GLOBAL _zx_pxy2aaddr
+649   0000              	GLOBAL _zx_px2bitmask_fastcall
+650   0000              	GLOBAL _zx_px2bitmask
+651   0000              	GLOBAL _zx_cy2saddr_fastcall
+652   0000              	GLOBAL _zx_cy2saddr
+653   0000              	GLOBAL _zx_cy2aaddr_fastcall
+654   0000              	GLOBAL _zx_cy2aaddr
+655   0000              	GLOBAL _zx_cxy2saddr_callee
+656   0000              	GLOBAL _zx_cxy2saddr
+657   0000              	GLOBAL _zx_cxy2aaddr_callee
+658   0000              	GLOBAL _zx_cxy2aaddr
+659   0000              	GLOBAL _zx_bitmask2px_fastcall
+660   0000              	GLOBAL _zx_bitmask2px
+661   0000              	GLOBAL _zx_aaddrcup_fastcall
+662   0000              	GLOBAL _zx_aaddrcup
+663   0000              	GLOBAL _zx_aaddrcright_fastcall
+664   0000              	GLOBAL _zx_aaddrcright
+665   0000              	GLOBAL _zx_aaddrcleft_fastcall
+666   0000              	GLOBAL _zx_aaddrcleft
+667   0000              	GLOBAL _zx_aaddrcdown_fastcall
+668   0000              	GLOBAL _zx_aaddrcdown
+669   0000              	GLOBAL _zx_aaddr2saddr_fastcall
+670   0000              	GLOBAL _zx_aaddr2saddr
+671   0000              	GLOBAL _zx_aaddr2py_fastcall
+672   0000              	GLOBAL _zx_aaddr2py
+673   0000              	GLOBAL _zx_aaddr2px_fastcall
+674   0000              	GLOBAL _zx_aaddr2px
+675   0000              	GLOBAL _zx_aaddr2cy_fastcall
+676   0000              	GLOBAL _zx_aaddr2cy
+677   0000              	GLOBAL _zx_aaddr2cx_fastcall
+678   0000              	GLOBAL _zx_aaddr2cx
+679   0000              	GLOBAL _zx_visit_wc_pix_callee
+680   0000              	GLOBAL _zx_visit_wc_pix
+681   0000              	GLOBAL _zx_visit_wc_attr_callee
+682   0000              	GLOBAL _zx_visit_wc_attr
+683   0000              	GLOBAL _zx_scroll_wc_up_pix_callee
+684   0000              	GLOBAL _zx_scroll_wc_up_pix
+685   0000              	GLOBAL _zx_scroll_wc_up_attr_callee
+686   0000              	GLOBAL _zx_scroll_wc_up_attr
+687   0000              	GLOBAL _zx_scroll_wc_up_callee
+688   0000              	GLOBAL _zx_scroll_wc_up
+689   0000              	GLOBAL _zx_scroll_up_pix_callee
+690   0000              	GLOBAL _zx_scroll_up_pix
+691   0000              	GLOBAL _zx_scroll_up_attr_callee
+692   0000              	GLOBAL _zx_scroll_up_attr
+693   0000              	GLOBAL _zx_scroll_up_callee
+694   0000              	GLOBAL _zx_scroll_up
+695   0000              	GLOBAL _zx_cls_wc_pix_callee
+696   0000              	GLOBAL _zx_cls_wc_pix
+697   0000              	GLOBAL _zx_cls_wc_attr_callee
+698   0000              	GLOBAL _zx_cls_wc_attr
+699   0000              	GLOBAL _zx_cls_wc_callee
+700   0000              	GLOBAL _zx_cls_wc
+701   0000              	GLOBAL _zx_cls_pix_fastcall
+702   0000              	GLOBAL _zx_cls_pix
+703   0000              	GLOBAL _zx_cls_attr_fastcall
+704   0000              	GLOBAL _zx_cls_attr
+705   0000              	GLOBAL _zx_cls_fastcall
+706   0000              	GLOBAL _zx_cls
+707   0000              	GLOBAL _zx_border_fastcall
+708   0000              	GLOBAL _zx_border
+709   0000              	GLOBAL _zx_tape_verify_block_callee
+710   0000              	GLOBAL _zx_tape_verify_block
+711   0000              	GLOBAL _zx_tape_save_block_callee
+712   0000              	GLOBAL _zx_tape_save_block
+713   0000              	GLOBAL _zx_tape_load_block_callee
+714   0000              	GLOBAL _zx_tape_load_block
+715   0000              	GLOBAL _sp1_struct_ss_prototype
+716   0000              	GLOBAL _sp1_struct_cs_prototype
+717   0000              	GLOBAL _GLOBAL_ZX_PORT_7FFD
+718   0000              	GLOBAL _GLOBAL_ZX_PORT_1FFD
+719   0000              	GLOBAL _GLOBAL_ZX_PORT_FE
+720   0000              ;--------------------------------------------------------
+721   0000              ; special function registers
+722   0000              ;--------------------------------------------------------
+723   0000              defc _IO_FE	=	0x00fe
+724   0000              defc _IO_1FFD	=	0x1ffd
+725   0000              defc _IO_7FFD	=	0x7ffd
+726   0000              ;--------------------------------------------------------
+727   0000              ; ram data
+728   0000              ;--------------------------------------------------------
+729   0000              	SECTION bss_compiler
+730   0000              ;--------------------------------------------------------
+731   0000              ; ram data
+732   0000              ;--------------------------------------------------------
+733   0000              
+734   0000              IF 0
+735   0000              
+736   0000              ; .area _INITIALIZED removed by z88dk
+737   0000              
+738   0000              
+739   0000              ENDIF
+740   0000              
+741   0000              ;--------------------------------------------------------
+742   0000              ; absolute external ram data
+743   0000              ;--------------------------------------------------------
+744   0000              	SECTION IGNORE
+745   0000              ;--------------------------------------------------------
+746   0000              ; global & static initialisations
+747   0000              ;--------------------------------------------------------
+748   0000              	SECTION code_crt_init
+749   0000              ;--------------------------------------------------------
+750   0000              ; Home
+751   0000              ;--------------------------------------------------------
+752   0000              	SECTION IGNORE
+753   0000              ;--------------------------------------------------------
+754   0000              ; code
+755   0000              ;--------------------------------------------------------
+756   0000              	SECTION code_compiler
+757   0000              ;	---------------------------------
+758   0000              ; Function InitSprites
+759   0000              ; ---------------------------------
+760   0000              _InitSprites:
+761   0000  21 20 00    	ld	hl,0x0020
+762   0003  E5          	push	hl
+763   0004  2E 07       	ld	l,0x07
+764   0006  E5          	push	hl
+765   0007  2E 07       	ld	l,0x07
+766   0009  E5          	push	hl
+767   000A  CD 00 00    	call	_sp1_Initialize_callee
+768   000D  21 00 00    	ld	hl,_FullScreen
+769   0010  C3 00 00    	jp	_sp1_Invalidate_fastcall
+770   0013              	SECTION rodata_compiler
+771   0000              _FullScreen:
+772   0000  00          	DEFB +0x00
+773   0001  00          	DEFB +0x00
+774   0002  20          	DEFB +0x20
+775   0003  18          	DEFB +0x18
+776   0004              	SECTION code_compiler
+777   0013              ;	---------------------------------
+778   0013              ; Function CreateSprite8x8
+779   0013              ; ---------------------------------
+780   0013              _CreateSprite8x8:
+781   0013  CD 00 00    	call	___sdcc_enter_ix
+782   0016  DD 7E 04    	ld	a,(ix+4)
+783   0019  C6 07       	add	a,0x07
+784   001B  5F          	ld	e, a
+785   001C  DD 7E 05    	ld	a,(ix+5)
+786   001F  CE 00       	adc	a,0x00
+787   0021  57          	ld	d, a
+788   0022  01 00 00    	ld	bc,_SP1_DRAW_LOAD1LB
+789   0025  21 00 00    	ld	hl,0x0000
+790   0028  E5          	push	hl
+791   0029  D5          	push	de
+792   002A  2E 02       	ld	l,0x02
+793   002C  E5          	push	hl
+794   002D  6C          	ld	l, h
+795   002E  E5          	push	hl
+796   002F  C5          	push	bc
+797   0030  CD 00 00    	call	_sp1_CreateSpr_callee
+798   0033  EB          	ex	de, hl
+799   0034  01 00 00    	ld	bc,_SP1_DRAW_LOAD1RB
+800   0037  D5          	push	de
+801   0038  21 00 00    	ld	hl,0x0000
+802   003B  E5          	push	hl
+803   003C  6C          	ld	l, h
+804   003D  E5          	push	hl
+805   003E  6C          	ld	l, h
+806   003F  E5          	push	hl
+807   0040  C5          	push	bc
+808   0041  D5          	push	de
+809   0042  CD 00 00    	call	_sp1_AddColSpr_callee
+810   0045  E1          	pop	hl
+811   0046  DD E1       	pop	ix
+812   0048  C9          	ret
+813   0049              	SECTION code_compiler
+814   0049              ;	---------------------------------
+815   0049              ; Function CreateMaskedSprite16x16
+816   0049              ; ---------------------------------
+817   0049              _CreateMaskedSprite16x16:
+818   0049  CD 00 00    	call	___sdcc_enter_ix
+819   004C  F5          	push	af
+820   004D  DD 7E 04    	ld	a,(ix+4)
+821   0050  C6 0E       	add	a,0x0e
+822   0052  5F          	ld	e, a
+823   0053  DD 7E 05    	ld	a,(ix+5)
+824   0056  CE 00       	adc	a,0x00
+825   0058  57          	ld	d, a
+826   0059  01 00 00    	ld	bc,_SP1_DRAW_MASK2LB
+827   005C  21 00 00    	ld	hl,0x0000
+828   005F  E5          	push	hl
+829   0060  D5          	push	de
+830   0061  2E 03       	ld	l,0x03
+831   0063  E5          	push	hl
+832   0064  2E 40       	ld	l,0x40
+833   0066  E5          	push	hl
+834   0067  C5          	push	bc
+835   0068  CD 00 00    	call	_sp1_CreateSpr_callee
+836   006B  EB          	ex	de, hl
+837   006C  DD 7E 04    	ld	a,(ix+4)
+838   006F  C6 3E       	add	a,0x3e
+839   0071  4F          	ld	c, a
+840   0072  DD 7E 05    	ld	a,(ix+5)
+841   0075  CE 00       	adc	a,0x00
+842   0077  47          	ld	b, a
+843   0078  DD 36 FE 00 	ld	(ix-2),+((_SP1_DRAW_MASK2) & 0xFF)
+844   007C  DD 36 FF 00 	ld	(ix-1),+((_SP1_DRAW_MASK2) / 256)
+845   0080  D5          	push	de
+846   0081  21 00 00    	ld	hl,0x0000
+847   0084  E5          	push	hl
+848   0085  C5          	push	bc
+849   0086  2E 40       	ld	l,0x40
+850   0088  E5          	push	hl
+851   0089  DD 6E FE    	ld	l,(ix-2)
+852   008C  DD 66 FF    	ld	h,(ix-1)
+853   008F  E5          	push	hl
+854   0090  D5          	push	de
+855   0091  CD 00 00    	call	_sp1_AddColSpr_callee
+856   0094  D1          	pop	de
+857   0095  01 00 00    	ld	bc,_SP1_DRAW_MASK2RB
+858   0098  D5          	push	de
+859   0099  21 00 00    	ld	hl,0x0000
+860   009C  E5          	push	hl
+861   009D  6C          	ld	l, h
+862   009E  E5          	push	hl
+863   009F  2E 40       	ld	l,0x40
+864   00A1  E5          	push	hl
+865   00A2  C5          	push	bc
+866   00A3  D5          	push	de
+867   00A4  CD 00 00    	call	_sp1_AddColSpr_callee
+868   00A7  E1          	pop	hl
+869   00A8  F1          	pop	af
+870   00A9  DD E1       	pop	ix
+871   00AB  C9          	ret
+872   00AC              	SECTION code_compiler
+873   00AC              ;	---------------------------------
+874   00AC              ; Function PutSprite
+875   00AC              ; ---------------------------------
+876   00AC              _PutSprite:
+877   00AC  CD 00 00    	call	___sdcc_enter_ix
+878   00AF  DD 5E 05    	ld	e,(ix+5)
+879   00B2  16 00       	ld	d,0x00
+880   00B4  DD 4E 04    	ld	c,(ix+4)
+881   00B7  06 00       	ld	b,0x00
+882   00B9  D5          	push	de
+883   00BA  C5          	push	bc
+884   00BB  21 00 00    	ld	hl,0x0000
+885   00BE  E5          	push	hl
+886   00BF  21 00 00    	ld	hl,_FullScreen
+887   00C2  E5          	push	hl
+888   00C3  DD 6E 06    	ld	l,(ix+6)
+889   00C6  DD 66 07    	ld	h,(ix+7)
+890   00C9  E5          	push	hl
+891   00CA  CD 00 00    	call	_sp1_MoveSprPix_callee
+892   00CD  DD E1       	pop	ix
+893   00CF  C9          	ret
+894   00D0              	SECTION IGNORE
+895   0000              

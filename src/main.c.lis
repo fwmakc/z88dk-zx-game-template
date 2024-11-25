@@ -1,0 +1,1584 @@
+1     0000              MODULE main_c
+2     0000              LINE 0, "src/main.c"
+0     0000              
+1     0000              ;--------------------------------------------------------
+2     0000              ; File Created by SDCC : free open source ANSI-C Compiler
+3     0000              ; Version 4.0.7 #12036 (MINGW64)
+4     0000              ;--------------------------------------------------------
+5     0000              ; Processed by Z88DK
+6     0000              ;--------------------------------------------------------
+7     0000              
+8     0000              	EXTERN __divschar
+9     0000              	EXTERN __divschar_callee
+10    0000              	EXTERN __divsint
+11    0000              	EXTERN __divsint_callee
+12    0000              	EXTERN __divslong
+13    0000              	EXTERN __divslong_callee
+14    0000              	EXTERN __divslonglong
+15    0000              	EXTERN __divslonglong_callee
+16    0000              	EXTERN __divsuchar
+17    0000              	EXTERN __divsuchar_callee
+18    0000              	EXTERN __divuchar
+19    0000              	EXTERN __divuchar_callee
+20    0000              	EXTERN __divuint
+21    0000              	EXTERN __divuint_callee
+22    0000              	EXTERN __divulong
+23    0000              	EXTERN __divulong_callee
+24    0000              	EXTERN __divulonglong
+25    0000              	EXTERN __divulonglong_callee
+26    0000              	EXTERN __divuschar
+27    0000              	EXTERN __divuschar_callee
+28    0000              	EXTERN __modschar
+29    0000              	EXTERN __modschar_callee
+30    0000              	EXTERN __modsint
+31    0000              	EXTERN __modsint_callee
+32    0000              	EXTERN __modslong
+33    0000              	EXTERN __modslong_callee
+34    0000              	EXTERN __modslonglong
+35    0000              	EXTERN __modslonglong_callee
+36    0000              	EXTERN __modsuchar
+37    0000              	EXTERN __modsuchar_callee
+38    0000              	EXTERN __moduchar
+39    0000              	EXTERN __moduchar_callee
+40    0000              	EXTERN __moduint
+41    0000              	EXTERN __moduint_callee
+42    0000              	EXTERN __modulong
+43    0000              	EXTERN __modulong_callee
+44    0000              	EXTERN __modulonglong
+45    0000              	EXTERN __modulonglong_callee
+46    0000              	EXTERN __moduschar
+47    0000              	EXTERN __moduschar_callee
+48    0000              	EXTERN __mulint
+49    0000              	EXTERN __mulint_callee
+50    0000              	EXTERN __mullong
+51    0000              	EXTERN __mullong_callee
+52    0000              	EXTERN __mullonglong
+53    0000              	EXTERN __mullonglong_callee
+54    0000              	EXTERN __mulschar
+55    0000              	EXTERN __mulschar_callee
+56    0000              	EXTERN __mulsuchar
+57    0000              	EXTERN __mulsuchar_callee
+58    0000              	EXTERN __muluchar
+59    0000              	EXTERN __muluchar_callee
+60    0000              	EXTERN __muluschar
+61    0000              	EXTERN __muluschar_callee
+62    0000              	EXTERN __rlslonglong
+63    0000              	EXTERN __rlslonglong_callee
+64    0000              	EXTERN __rlulonglong
+65    0000              	EXTERN __rlulonglong_callee
+66    0000              	EXTERN __rrslonglong
+67    0000              	EXTERN __rrslonglong_callee
+68    0000              	EXTERN __rrulonglong
+69    0000              	EXTERN __rrulonglong_callee
+70    0000              	EXTERN ___sdcc_call_hl
+71    0000              	EXTERN ___sdcc_call_iy
+72    0000              	EXTERN ___sdcc_enter_ix
+73    0000              	EXTERN banked_call
+74    0000              	EXTERN _banked_ret
+75    0000              	EXTERN ___fs2schar
+76    0000              	EXTERN ___fs2schar_callee
+77    0000              	EXTERN ___fs2sint
+78    0000              	EXTERN ___fs2sint_callee
+79    0000              	EXTERN ___fs2slong
+80    0000              	EXTERN ___fs2slong_callee
+81    0000              	EXTERN ___fs2slonglong
+82    0000              	EXTERN ___fs2slonglong_callee
+83    0000              	EXTERN ___fs2uchar
+84    0000              	EXTERN ___fs2uchar_callee
+85    0000              	EXTERN ___fs2uint
+86    0000              	EXTERN ___fs2uint_callee
+87    0000              	EXTERN ___fs2ulong
+88    0000              	EXTERN ___fs2ulong_callee
+89    0000              	EXTERN ___fs2ulonglong
+90    0000              	EXTERN ___fs2ulonglong_callee
+91    0000              	EXTERN ___fsadd
+92    0000              	EXTERN ___fsadd_callee
+93    0000              	EXTERN ___fsdiv
+94    0000              	EXTERN ___fsdiv_callee
+95    0000              	EXTERN ___fseq
+96    0000              	EXTERN ___fseq_callee
+97    0000              	EXTERN ___fsgt
+98    0000              	EXTERN ___fsgt_callee
+99    0000              	EXTERN ___fslt
+100   0000              	EXTERN ___fslt_callee
+101   0000              	EXTERN ___fsmul
+102   0000              	EXTERN ___fsmul_callee
+103   0000              	EXTERN ___fsneq
+104   0000              	EXTERN ___fsneq_callee
+105   0000              	EXTERN ___fssub
+106   0000              	EXTERN ___fssub_callee
+107   0000              	EXTERN ___schar2fs
+108   0000              	EXTERN ___schar2fs_callee
+109   0000              	EXTERN ___sint2fs
+110   0000              	EXTERN ___sint2fs_callee
+111   0000              	EXTERN ___slong2fs
+112   0000              	EXTERN ___slong2fs_callee
+113   0000              	EXTERN ___slonglong2fs
+114   0000              	EXTERN ___slonglong2fs_callee
+115   0000              	EXTERN ___uchar2fs
+116   0000              	EXTERN ___uchar2fs_callee
+117   0000              	EXTERN ___uint2fs
+118   0000              	EXTERN ___uint2fs_callee
+119   0000              	EXTERN ___ulong2fs
+120   0000              	EXTERN ___ulong2fs_callee
+121   0000              	EXTERN ___ulonglong2fs
+122   0000              	EXTERN ___ulonglong2fs_callee
+123   0000              	EXTERN ____sdcc_2_copy_src_mhl_dst_deix
+124   0000              	EXTERN ____sdcc_2_copy_src_mhl_dst_bcix
+125   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_deix
+126   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_bcix
+127   0000              	EXTERN ____sdcc_4_copy_src_mhl_dst_mbc
+128   0000              	EXTERN ____sdcc_4_ldi_nosave_bc
+129   0000              	EXTERN ____sdcc_4_ldi_save_bc
+130   0000              	EXTERN ____sdcc_4_push_hlix
+131   0000              	EXTERN ____sdcc_4_push_mhl
+132   0000              	EXTERN ____sdcc_lib_setmem_hl
+133   0000              	EXTERN ____sdcc_ll_add_de_bc_hl
+134   0000              	EXTERN ____sdcc_ll_add_de_bc_hlix
+135   0000              	EXTERN ____sdcc_ll_add_de_hlix_bc
+136   0000              	EXTERN ____sdcc_ll_add_de_hlix_bcix
+137   0000              	EXTERN ____sdcc_ll_add_deix_bc_hl
+138   0000              	EXTERN ____sdcc_ll_add_deix_hlix
+139   0000              	EXTERN ____sdcc_ll_add_hlix_bc_deix
+140   0000              	EXTERN ____sdcc_ll_add_hlix_deix_bc
+141   0000              	EXTERN ____sdcc_ll_add_hlix_deix_bcix
+142   0000              	EXTERN ____sdcc_ll_asr_hlix_a
+143   0000              	EXTERN ____sdcc_ll_asr_mbc_a
+144   0000              	EXTERN ____sdcc_ll_copy_src_de_dst_hlix
+145   0000              	EXTERN ____sdcc_ll_copy_src_de_dst_hlsp
+146   0000              	EXTERN ____sdcc_ll_copy_src_deix_dst_hl
+147   0000              	EXTERN ____sdcc_ll_copy_src_deix_dst_hlix
+148   0000              	EXTERN ____sdcc_ll_copy_src_deixm_dst_hlsp
+149   0000              	EXTERN ____sdcc_ll_copy_src_desp_dst_hlsp
+150   0000              	EXTERN ____sdcc_ll_copy_src_hl_dst_de
+151   0000              	EXTERN ____sdcc_ll_copy_src_hlsp_dst_de
+152   0000              	EXTERN ____sdcc_ll_copy_src_hlsp_dst_deixm
+153   0000              	EXTERN ____sdcc_ll_lsl_hlix_a
+154   0000              	EXTERN ____sdcc_ll_lsl_mbc_a
+155   0000              	EXTERN ____sdcc_ll_lsr_hlix_a
+156   0000              	EXTERN ____sdcc_ll_lsr_mbc_a
+157   0000              	EXTERN ____sdcc_ll_push_hlix
+158   0000              	EXTERN ____sdcc_ll_push_mhl
+159   0000              	EXTERN ____sdcc_ll_sub_de_bc_hl
+160   0000              	EXTERN ____sdcc_ll_sub_de_bc_hlix
+161   0000              	EXTERN ____sdcc_ll_sub_de_hlix_bc
+162   0000              	EXTERN ____sdcc_ll_sub_de_hlix_bcix
+163   0000              	EXTERN ____sdcc_ll_sub_deix_bc_hl
+164   0000              	EXTERN ____sdcc_ll_sub_deix_hlix
+165   0000              	EXTERN ____sdcc_ll_sub_hlix_bc_deix
+166   0000              	EXTERN ____sdcc_ll_sub_hlix_deix_bc
+167   0000              	EXTERN ____sdcc_ll_sub_hlix_deix_bcix
+168   0000              	EXTERN ____sdcc_load_debc_deix
+169   0000              	EXTERN ____sdcc_load_dehl_deix
+170   0000              	EXTERN ____sdcc_load_debc_mhl
+171   0000              	EXTERN ____sdcc_load_hlde_mhl
+172   0000              	EXTERN ____sdcc_store_dehl_bcix
+173   0000              	EXTERN ____sdcc_store_debc_hlix
+174   0000              	EXTERN ____sdcc_store_debc_mhl
+175   0000              	EXTERN ____sdcc_cpu_pop_ei
+176   0000              	EXTERN ____sdcc_cpu_pop_ei_jp
+177   0000              	EXTERN ____sdcc_cpu_push_di
+178   0000              	EXTERN ____sdcc_outi
+179   0000              	EXTERN ____sdcc_outi_128
+180   0000              	EXTERN ____sdcc_outi_256
+181   0000              	EXTERN ____sdcc_ldi
+182   0000              	EXTERN ____sdcc_ldi_128
+183   0000              	EXTERN ____sdcc_ldi_256
+184   0000              	EXTERN ____sdcc_4_copy_srcd_hlix_dst_deix
+185   0000              	EXTERN ____sdcc_4_and_src_mbc_mhl_dst_deix
+186   0000              	EXTERN ____sdcc_4_or_src_mbc_mhl_dst_deix
+187   0000              	EXTERN ____sdcc_4_xor_src_mbc_mhl_dst_deix
+188   0000              	EXTERN ____sdcc_4_or_src_dehl_dst_bcix
+189   0000              	EXTERN ____sdcc_4_xor_src_dehl_dst_bcix
+190   0000              	EXTERN ____sdcc_4_and_src_dehl_dst_bcix
+191   0000              	EXTERN ____sdcc_4_xor_src_mbc_mhl_dst_debc
+192   0000              	EXTERN ____sdcc_4_or_src_mbc_mhl_dst_debc
+193   0000              	EXTERN ____sdcc_4_and_src_mbc_mhl_dst_debc
+194   0000              	EXTERN ____sdcc_4_cpl_src_mhl_dst_debc
+195   0000              	EXTERN ____sdcc_4_xor_src_debc_mhl_dst_debc
+196   0000              	EXTERN ____sdcc_4_or_src_debc_mhl_dst_debc
+197   0000              	EXTERN ____sdcc_4_and_src_debc_mhl_dst_debc
+198   0000              	EXTERN ____sdcc_4_and_src_debc_hlix_dst_debc
+199   0000              	EXTERN ____sdcc_4_or_src_debc_hlix_dst_debc
+200   0000              	EXTERN ____sdcc_4_xor_src_debc_hlix_dst_debc
+201   0000              
+202   0000              ;--------------------------------------------------------
+203   0000              ; Public variables in this module
+204   0000              ;--------------------------------------------------------
+205   0000              	GLOBAL _main
+206   0000              	GLOBAL _DrawLevel
+207   0000              	GLOBAL _CheckCanMoveY
+208   0000              	GLOBAL _CheckCanMoveX
+209   0000              	GLOBAL _IsTileWalkable
+210   0000              	GLOBAL _PlayerY
+211   0000              	GLOBAL _PlayerX
+212   0000              	GLOBAL _CurrentLevel
+213   0000              	GLOBAL _Enemies
+214   0000              ;--------------------------------------------------------
+215   0000              ; Externals used
+216   0000              ;--------------------------------------------------------
+217   0000              	GLOBAL _PutSprite
+218   0000              	GLOBAL _CreateMaskedSprite16x16
+219   0000              	GLOBAL _CreateSprite8x8
+220   0000              	GLOBAL _InitSprites
+221   0000              	GLOBAL _ffsll_callee
+222   0000              	GLOBAL _ffsll
+223   0000              	GLOBAL _strxfrm_callee
+224   0000              	GLOBAL _strxfrm
+225   0000              	GLOBAL _strupr_fastcall
+226   0000              	GLOBAL _strupr
+227   0000              	GLOBAL _strtok_r_callee
+228   0000              	GLOBAL _strtok_r
+229   0000              	GLOBAL _strtok_callee
+230   0000              	GLOBAL _strtok
+231   0000              	GLOBAL _strstrip_fastcall
+232   0000              	GLOBAL _strstrip
+233   0000              	GLOBAL _strstr_callee
+234   0000              	GLOBAL _strstr
+235   0000              	GLOBAL _strspn_callee
+236   0000              	GLOBAL _strspn
+237   0000              	GLOBAL _strsep_callee
+238   0000              	GLOBAL _strsep
+239   0000              	GLOBAL _strrstrip_fastcall
+240   0000              	GLOBAL _strrstrip
+241   0000              	GLOBAL _strrstr_callee
+242   0000              	GLOBAL _strrstr
+243   0000              	GLOBAL _strrspn_callee
+244   0000              	GLOBAL _strrspn
+245   0000              	GLOBAL _strrev_fastcall
+246   0000              	GLOBAL _strrev
+247   0000              	GLOBAL _strrcspn_callee
+248   0000              	GLOBAL _strrcspn
+249   0000              	GLOBAL _strrchr_callee
+250   0000              	GLOBAL _strrchr
+251   0000              	GLOBAL _strpbrk_callee
+252   0000              	GLOBAL _strpbrk
+253   0000              	GLOBAL _strnlen_callee
+254   0000              	GLOBAL _strnlen
+255   0000              	GLOBAL _strnicmp_callee
+256   0000              	GLOBAL _strnicmp
+257   0000              	GLOBAL _strndup_callee
+258   0000              	GLOBAL _strndup
+259   0000              	GLOBAL _strncpy_callee
+260   0000              	GLOBAL _strncpy
+261   0000              	GLOBAL _strncmp_callee
+262   0000              	GLOBAL _strncmp
+263   0000              	GLOBAL _strnchr_callee
+264   0000              	GLOBAL _strnchr
+265   0000              	GLOBAL _strncat_callee
+266   0000              	GLOBAL _strncat
+267   0000              	GLOBAL _strncasecmp_callee
+268   0000              	GLOBAL _strncasecmp
+269   0000              	GLOBAL _strlwr_fastcall
+270   0000              	GLOBAL _strlwr
+271   0000              	GLOBAL _strlen_fastcall
+272   0000              	GLOBAL _strlen
+273   0000              	GLOBAL _strlcpy_callee
+274   0000              	GLOBAL _strlcpy
+275   0000              	GLOBAL _strlcat_callee
+276   0000              	GLOBAL _strlcat
+277   0000              	GLOBAL _stricmp_callee
+278   0000              	GLOBAL _stricmp
+279   0000              	GLOBAL _strerror_fastcall
+280   0000              	GLOBAL _strerror
+281   0000              	GLOBAL _strdup_fastcall
+282   0000              	GLOBAL _strdup
+283   0000              	GLOBAL _strcspn_callee
+284   0000              	GLOBAL _strcspn
+285   0000              	GLOBAL _strcpy_callee
+286   0000              	GLOBAL _strcpy
+287   0000              	GLOBAL _strcoll_callee
+288   0000              	GLOBAL _strcoll
+289   0000              	GLOBAL _strcmp_callee
+290   0000              	GLOBAL _strcmp
+291   0000              	GLOBAL _strchrnul_callee
+292   0000              	GLOBAL _strchrnul
+293   0000              	GLOBAL _strchr_callee
+294   0000              	GLOBAL _strchr
+295   0000              	GLOBAL _strcat_callee
+296   0000              	GLOBAL _strcat
+297   0000              	GLOBAL _strcasecmp_callee
+298   0000              	GLOBAL _strcasecmp
+299   0000              	GLOBAL _stpncpy_callee
+300   0000              	GLOBAL _stpncpy
+301   0000              	GLOBAL _stpcpy_callee
+302   0000              	GLOBAL _stpcpy
+303   0000              	GLOBAL _memswap_callee
+304   0000              	GLOBAL _memswap
+305   0000              	GLOBAL _memset_callee
+306   0000              	GLOBAL _memset
+307   0000              	GLOBAL _memrchr_callee
+308   0000              	GLOBAL _memrchr
+309   0000              	GLOBAL _memmove_callee
+310   0000              	GLOBAL _memmove
+311   0000              	GLOBAL _memmem_callee
+312   0000              	GLOBAL _memmem
+313   0000              	GLOBAL _memcpy_callee
+314   0000              	GLOBAL _memcpy
+315   0000              	GLOBAL _memcmp_callee
+316   0000              	GLOBAL _memcmp
+317   0000              	GLOBAL _memchr_callee
+318   0000              	GLOBAL _memchr
+319   0000              	GLOBAL _memccpy_callee
+320   0000              	GLOBAL _memccpy
+321   0000              	GLOBAL _ffsl_fastcall
+322   0000              	GLOBAL _ffsl
+323   0000              	GLOBAL _ffs_fastcall
+324   0000              	GLOBAL _ffs
+325   0000              	GLOBAL __strrstrip__fastcall
+326   0000              	GLOBAL __strrstrip_
+327   0000              	GLOBAL __memupr__callee
+328   0000              	GLOBAL __memupr_
+329   0000              	GLOBAL __memstrcpy__callee
+330   0000              	GLOBAL __memstrcpy_
+331   0000              	GLOBAL __memlwr__callee
+332   0000              	GLOBAL __memlwr_
+333   0000              	GLOBAL _rawmemchr_callee
+334   0000              	GLOBAL _rawmemchr
+335   0000              	GLOBAL _strnset_callee
+336   0000              	GLOBAL _strnset
+337   0000              	GLOBAL _strset_callee
+338   0000              	GLOBAL _strset
+339   0000              	GLOBAL _rindex_callee
+340   0000              	GLOBAL _rindex
+341   0000              	GLOBAL _index_callee
+342   0000              	GLOBAL _index
+343   0000              	GLOBAL _bzero_callee
+344   0000              	GLOBAL _bzero
+345   0000              	GLOBAL _bcopy_callee
+346   0000              	GLOBAL _bcopy
+347   0000              	GLOBAL _bcmp_callee
+348   0000              	GLOBAL _bcmp
+349   0000              	GLOBAL _in_mouse_kempston_wheel_delta
+350   0000              	GLOBAL _in_mouse_kempston_wheel
+351   0000              	GLOBAL _in_mouse_kempston_callee
+352   0000              	GLOBAL _in_mouse_kempston
+353   0000              	GLOBAL _in_mouse_kempston_setpos_callee
+354   0000              	GLOBAL _in_mouse_kempston_setpos
+355   0000              	GLOBAL _in_mouse_kempston_reset
+356   0000              	GLOBAL _in_mouse_kempston_init
+357   0000              	GLOBAL _in_mouse_amx_wheel_delta
+358   0000              	GLOBAL _in_mouse_amx_wheel
+359   0000              	GLOBAL _in_mouse_amx_callee
+360   0000              	GLOBAL _in_mouse_amx
+361   0000              	GLOBAL _in_mouse_amx_setpos_callee
+362   0000              	GLOBAL _in_mouse_amx_setpos
+363   0000              	GLOBAL _in_mouse_amx_reset
+364   0000              	GLOBAL _in_mouse_amx_init_callee
+365   0000              	GLOBAL _in_mouse_amx_init
+366   0000              	GLOBAL _in_stick_sinclair2
+367   0000              	GLOBAL _in_stick_sinclair1
+368   0000              	GLOBAL _in_stick_kempston
+369   0000              	GLOBAL _in_stick_fuller
+370   0000              	GLOBAL _in_stick_cursor
+371   0000              	GLOBAL _in_stick_keyboard_fastcall
+372   0000              	GLOBAL _in_stick_keyboard
+373   0000              	GLOBAL _in_wait_nokey
+374   0000              	GLOBAL _in_wait_key
+375   0000              	GLOBAL _in_test_key
+376   0000              	GLOBAL _in_pause_fastcall
+377   0000              	GLOBAL _in_pause
+378   0000              	GLOBAL _in_key_scancode_fastcall
+379   0000              	GLOBAL _in_key_scancode
+380   0000              	GLOBAL _in_key_pressed_fastcall
+381   0000              	GLOBAL _in_key_pressed
+382   0000              	GLOBAL _in_inkey
+383   0000              	GLOBAL _bfx_57
+384   0000              	GLOBAL _bfx_56
+385   0000              	GLOBAL _bfx_55
+386   0000              	GLOBAL _bfx_54
+387   0000              	GLOBAL _bfx_53
+388   0000              	GLOBAL _bfx_52
+389   0000              	GLOBAL _bfx_51
+390   0000              	GLOBAL _bfx_50
+391   0000              	GLOBAL _bfx_49
+392   0000              	GLOBAL _bfx_48
+393   0000              	GLOBAL _bfx_47
+394   0000              	GLOBAL _bfx_46
+395   0000              	GLOBAL _bfx_45
+396   0000              	GLOBAL _bfx_44
+397   0000              	GLOBAL _bfx_43
+398   0000              	GLOBAL _bfx_42
+399   0000              	GLOBAL _bfx_41
+400   0000              	GLOBAL _bfx_40
+401   0000              	GLOBAL _bfx_39
+402   0000              	GLOBAL _bfx_38
+403   0000              	GLOBAL _bfx_37
+404   0000              	GLOBAL _bfx_36
+405   0000              	GLOBAL _bfx_35
+406   0000              	GLOBAL _bfx_34
+407   0000              	GLOBAL _bfx_33
+408   0000              	GLOBAL _bfx_32
+409   0000              	GLOBAL _bfx_31
+410   0000              	GLOBAL _bfx_30
+411   0000              	GLOBAL _bfx_29
+412   0000              	GLOBAL _bfx_28
+413   0000              	GLOBAL _bfx_27
+414   0000              	GLOBAL _bfx_26
+415   0000              	GLOBAL _bfx_25
+416   0000              	GLOBAL _bfx_24
+417   0000              	GLOBAL _bfx_23
+418   0000              	GLOBAL _bfx_22
+419   0000              	GLOBAL _bfx_21
+420   0000              	GLOBAL _bfx_20
+421   0000              	GLOBAL _bfx_19
+422   0000              	GLOBAL _bfx_18
+423   0000              	GLOBAL _bfx_17
+424   0000              	GLOBAL _bfx_16
+425   0000              	GLOBAL _bfx_15
+426   0000              	GLOBAL _bfx_14
+427   0000              	GLOBAL _bfx_13
+428   0000              	GLOBAL _bfx_12
+429   0000              	GLOBAL _bfx_11
+430   0000              	GLOBAL _bfx_10
+431   0000              	GLOBAL _bfx_9
+432   0000              	GLOBAL _bfx_8
+433   0000              	GLOBAL _bfx_7
+434   0000              	GLOBAL _bfx_6
+435   0000              	GLOBAL _bfx_5
+436   0000              	GLOBAL _bfx_4
+437   0000              	GLOBAL _bfx_3
+438   0000              	GLOBAL _bfx_2
+439   0000              	GLOBAL _bfx_1
+440   0000              	GLOBAL _bfx_0
+441   0000              	GLOBAL _bitfx_31
+442   0000              	GLOBAL _bitfx_30
+443   0000              	GLOBAL _bitfx_29
+444   0000              	GLOBAL _bitfx_28
+445   0000              	GLOBAL _bitfx_27
+446   0000              	GLOBAL _bitfx_26
+447   0000              	GLOBAL _bitfx_25
+448   0000              	GLOBAL _bitfx_24
+449   0000              	GLOBAL _bitfx_23
+450   0000              	GLOBAL _bitfx_22
+451   0000              	GLOBAL _bitfx_21
+452   0000              	GLOBAL _bitfx_20
+453   0000              	GLOBAL _bitfx_19
+454   0000              	GLOBAL _bitfx_18
+455   0000              	GLOBAL _bitfx_17
+456   0000              	GLOBAL _bitfx_16
+457   0000              	GLOBAL _bitfx_15
+458   0000              	GLOBAL _bitfx_14
+459   0000              	GLOBAL _bitfx_13
+460   0000              	GLOBAL _bitfx_12
+461   0000              	GLOBAL _bitfx_11
+462   0000              	GLOBAL _bitfx_10
+463   0000              	GLOBAL _bitfx_9
+464   0000              	GLOBAL _bitfx_8
+465   0000              	GLOBAL _bitfx_7
+466   0000              	GLOBAL _bitfx_6
+467   0000              	GLOBAL _bitfx_5
+468   0000              	GLOBAL _bitfx_4
+469   0000              	GLOBAL _bitfx_3
+470   0000              	GLOBAL _bitfx_2
+471   0000              	GLOBAL _bitfx_1
+472   0000              	GLOBAL _bitfx_0
+473   0000              	GLOBAL _bit_synth_di_callee
+474   0000              	GLOBAL _bit_synth_di
+475   0000              	GLOBAL _bit_play_tritone_di_fastcall
+476   0000              	GLOBAL _bit_play_tritone_di
+477   0000              	GLOBAL _bit_play_di_fastcall
+478   0000              	GLOBAL _bit_play_di
+479   0000              	GLOBAL _bit_beepfx_di_fastcall
+480   0000              	GLOBAL _bit_beepfx_di
+481   0000              	GLOBAL _bit_fx_di_fastcall
+482   0000              	GLOBAL _bit_fx_di
+483   0000              	GLOBAL _bit_click_di
+484   0000              	GLOBAL _bit_beep_raw_di_callee
+485   0000              	GLOBAL _bit_beep_raw_di
+486   0000              	GLOBAL _bit_beep_di_callee
+487   0000              	GLOBAL _bit_beep_di
+488   0000              	GLOBAL _bit_synth_callee
+489   0000              	GLOBAL _bit_synth
+490   0000              	GLOBAL _bit_play_tritone_fastcall
+491   0000              	GLOBAL _bit_play_tritone
+492   0000              	GLOBAL _bit_play_fastcall
+493   0000              	GLOBAL _bit_play
+494   0000              	GLOBAL _bit_beepfx_fastcall
+495   0000              	GLOBAL _bit_beepfx
+496   0000              	GLOBAL _bit_fx_fastcall
+497   0000              	GLOBAL _bit_fx
+498   0000              	GLOBAL _bit_click
+499   0000              	GLOBAL _bit_beep_raw_callee
+500   0000              	GLOBAL _bit_beep_raw
+501   0000              	GLOBAL _bit_beep_callee
+502   0000              	GLOBAL _bit_beep
+503   0000              	GLOBAL _sp1_Validate_fastcall
+504   0000              	GLOBAL _sp1_Validate
+505   0000              	GLOBAL _sp1_Invalidate_fastcall
+506   0000              	GLOBAL _sp1_Invalidate
+507   0000              	GLOBAL _sp1_RestoreUpdateStruct_fastcall
+508   0000              	GLOBAL _sp1_RestoreUpdateStruct
+509   0000              	GLOBAL _sp1_RemoveUpdateStruct_fastcall
+510   0000              	GLOBAL _sp1_RemoveUpdateStruct
+511   0000              	GLOBAL _sp1_DrawUpdateStructAlways_fastcall
+512   0000              	GLOBAL _sp1_DrawUpdateStructAlways
+513   0000              	GLOBAL _sp1_DrawUpdateStructIfNotRem_fastcall
+514   0000              	GLOBAL _sp1_DrawUpdateStructIfNotRem
+515   0000              	GLOBAL _sp1_DrawUpdateStructIfVal_fastcall
+516   0000              	GLOBAL _sp1_DrawUpdateStructIfVal
+517   0000              	GLOBAL _sp1_DrawUpdateStructIfInv_fastcall
+518   0000              	GLOBAL _sp1_DrawUpdateStructIfInv
+519   0000              	GLOBAL _sp1_ValUpdateStruct_fastcall
+520   0000              	GLOBAL _sp1_ValUpdateStruct
+521   0000              	GLOBAL _sp1_InvUpdateStruct_fastcall
+522   0000              	GLOBAL _sp1_InvUpdateStruct
+523   0000              	GLOBAL _sp1_IterateUpdateRect_callee
+524   0000              	GLOBAL _sp1_IterateUpdateRect
+525   0000              	GLOBAL _sp1_IterateUpdateArr_callee
+526   0000              	GLOBAL _sp1_IterateUpdateArr
+527   0000              	GLOBAL _sp1_GetUpdateStruct_callee
+528   0000              	GLOBAL _sp1_GetUpdateStruct
+529   0000              	GLOBAL _sp1_UpdateNow
+530   0000              	GLOBAL _sp1_Initialize_callee
+531   0000              	GLOBAL _sp1_Initialize
+532   0000              	GLOBAL _sp1_ClearRectInv_callee
+533   0000              	GLOBAL _sp1_ClearRectInv
+534   0000              	GLOBAL _sp1_ClearRect_callee
+535   0000              	GLOBAL _sp1_ClearRect
+536   0000              	GLOBAL _sp1_PutTilesInv_callee
+537   0000              	GLOBAL _sp1_PutTilesInv
+538   0000              	GLOBAL _sp1_PutTiles_callee
+539   0000              	GLOBAL _sp1_PutTiles
+540   0000              	GLOBAL _sp1_GetTiles_callee
+541   0000              	GLOBAL _sp1_GetTiles
+542   0000              	GLOBAL _sp1_SetPrintPos_callee
+543   0000              	GLOBAL _sp1_SetPrintPos
+544   0000              	GLOBAL _sp1_PrintString_callee
+545   0000              	GLOBAL _sp1_PrintString
+546   0000              	GLOBAL _sp1_ScreenAttr_callee
+547   0000              	GLOBAL _sp1_ScreenAttr
+548   0000              	GLOBAL _sp1_ScreenStr_callee
+549   0000              	GLOBAL _sp1_ScreenStr
+550   0000              	GLOBAL _sp1_PrintAtInv_callee
+551   0000              	GLOBAL _sp1_PrintAtInv
+552   0000              	GLOBAL _sp1_PrintAt_callee
+553   0000              	GLOBAL _sp1_PrintAt
+554   0000              	GLOBAL _sp1_TileEntry_callee
+555   0000              	GLOBAL _sp1_TileEntry
+556   0000              	GLOBAL _sp1_RemoveCharStruct_fastcall
+557   0000              	GLOBAL _sp1_RemoveCharStruct
+558   0000              	GLOBAL _sp1_InsertCharStruct_callee
+559   0000              	GLOBAL _sp1_InsertCharStruct
+560   0000              	GLOBAL _sp1_InitCharStruct_callee
+561   0000              	GLOBAL _sp1_InitCharStruct
+562   0000              	GLOBAL _sp1_PreShiftSpr_callee
+563   0000              	GLOBAL _sp1_PreShiftSpr
+564   0000              	GLOBAL _sp1_GetSprClr_callee
+565   0000              	GLOBAL _sp1_GetSprClr
+566   0000              	GLOBAL _sp1_PutSprClr_callee
+567   0000              	GLOBAL _sp1_PutSprClr
+568   0000              	GLOBAL _sp1_GetSprClrAddr_callee
+569   0000              	GLOBAL _sp1_GetSprClrAddr
+570   0000              	GLOBAL _sp1_IterateUpdateSpr_callee
+571   0000              	GLOBAL _sp1_IterateUpdateSpr
+572   0000              	GLOBAL _sp1_IterateSprChar_callee
+573   0000              	GLOBAL _sp1_IterateSprChar
+574   0000              	GLOBAL _sp1_MoveSprPix_callee
+575   0000              	GLOBAL _sp1_MoveSprPix
+576   0000              	GLOBAL _sp1_MoveSprRel_callee
+577   0000              	GLOBAL _sp1_MoveSprRel
+578   0000              	GLOBAL _sp1_MoveSprAbs_callee
+579   0000              	GLOBAL _sp1_MoveSprAbs
+580   0000              	GLOBAL _sp1_DeleteSpr_fastcall
+581   0000              	GLOBAL _sp1_DeleteSpr
+582   0000              	GLOBAL _sp1_ChangeSprType_callee
+583   0000              	GLOBAL _sp1_ChangeSprType
+584   0000              	GLOBAL _sp1_AddColSpr_callee
+585   0000              	GLOBAL _sp1_AddColSpr
+586   0000              	GLOBAL _sp1_CreateSpr_callee
+587   0000              	GLOBAL _sp1_CreateSpr
+588   0000              	GLOBAL _SP1_DRAW_ATTR
+589   0000              	GLOBAL _SP1_DRAW_LOAD1RBIM
+590   0000              	GLOBAL _SP1_DRAW_LOAD1LBIM
+591   0000              	GLOBAL _SP1_DRAW_XOR1RB
+592   0000              	GLOBAL _SP1_DRAW_XOR1LB
+593   0000              	GLOBAL _SP1_DRAW_XOR1NR
+594   0000              	GLOBAL _SP1_DRAW_XOR1
+595   0000              	GLOBAL _SP1_DRAW_OR1RB
+596   0000              	GLOBAL _SP1_DRAW_OR1LB
+597   0000              	GLOBAL _SP1_DRAW_OR1NR
+598   0000              	GLOBAL _SP1_DRAW_OR1
+599   0000              	GLOBAL _SP1_DRAW_LOAD1RB
+600   0000              	GLOBAL _SP1_DRAW_LOAD1LB
+601   0000              	GLOBAL _SP1_DRAW_LOAD1NR
+602   0000              	GLOBAL _SP1_DRAW_LOAD1
+603   0000              	GLOBAL _SP1_DRAW_LOAD2RBIM
+604   0000              	GLOBAL _SP1_DRAW_LOAD2LBIM
+605   0000              	GLOBAL _SP1_DRAW_XOR2RB
+606   0000              	GLOBAL _SP1_DRAW_XOR2LB
+607   0000              	GLOBAL _SP1_DRAW_XOR2NR
+608   0000              	GLOBAL _SP1_DRAW_XOR2
+609   0000              	GLOBAL _SP1_DRAW_OR2RB
+610   0000              	GLOBAL _SP1_DRAW_OR2LB
+611   0000              	GLOBAL _SP1_DRAW_OR2NR
+612   0000              	GLOBAL _SP1_DRAW_OR2
+613   0000              	GLOBAL _SP1_DRAW_LOAD2RB
+614   0000              	GLOBAL _SP1_DRAW_LOAD2LB
+615   0000              	GLOBAL _SP1_DRAW_LOAD2NR
+616   0000              	GLOBAL _SP1_DRAW_LOAD2
+617   0000              	GLOBAL _SP1_DRAW_MASK2RB
+618   0000              	GLOBAL _SP1_DRAW_MASK2LB
+619   0000              	GLOBAL _SP1_DRAW_MASK2NR
+620   0000              	GLOBAL _SP1_DRAW_MASK2
+621   0000              	GLOBAL _zx_pattern_fill_callee
+622   0000              	GLOBAL _zx_pattern_fill
+623   0000              	GLOBAL _zx_saddrpup_fastcall
+624   0000              	GLOBAL _zx_saddrpup
+625   0000              	GLOBAL _zx_saddrpright_callee
+626   0000              	GLOBAL _zx_saddrpright
+627   0000              	GLOBAL _zx_saddrpleft_callee
+628   0000              	GLOBAL _zx_saddrpleft
+629   0000              	GLOBAL _zx_saddrpdown_fastcall
+630   0000              	GLOBAL _zx_saddrpdown
+631   0000              	GLOBAL _zx_saddrcup_fastcall
+632   0000              	GLOBAL _zx_saddrcup
+633   0000              	GLOBAL _zx_saddrcright_fastcall
+634   0000              	GLOBAL _zx_saddrcright
+635   0000              	GLOBAL _zx_saddrcleft_fastcall
+636   0000              	GLOBAL _zx_saddrcleft
+637   0000              	GLOBAL _zx_saddrcdown_fastcall
+638   0000              	GLOBAL _zx_saddrcdown
+639   0000              	GLOBAL _zx_saddr2py_fastcall
+640   0000              	GLOBAL _zx_saddr2py
+641   0000              	GLOBAL _zx_saddr2px_fastcall
+642   0000              	GLOBAL _zx_saddr2px
+643   0000              	GLOBAL _zx_saddr2cy_fastcall
+644   0000              	GLOBAL _zx_saddr2cy
+645   0000              	GLOBAL _zx_saddr2cx_fastcall
+646   0000              	GLOBAL _zx_saddr2cx
+647   0000              	GLOBAL _zx_saddr2aaddr_fastcall
+648   0000              	GLOBAL _zx_saddr2aaddr
+649   0000              	GLOBAL _zx_py2saddr_fastcall
+650   0000              	GLOBAL _zx_py2saddr
+651   0000              	GLOBAL _zx_py2aaddr_fastcall
+652   0000              	GLOBAL _zx_py2aaddr
+653   0000              	GLOBAL _zx_pxy2saddr_callee
+654   0000              	GLOBAL _zx_pxy2saddr
+655   0000              	GLOBAL _zx_pxy2aaddr_callee
+656   0000              	GLOBAL _zx_pxy2aaddr
+657   0000              	GLOBAL _zx_px2bitmask_fastcall
+658   0000              	GLOBAL _zx_px2bitmask
+659   0000              	GLOBAL _zx_cy2saddr_fastcall
+660   0000              	GLOBAL _zx_cy2saddr
+661   0000              	GLOBAL _zx_cy2aaddr_fastcall
+662   0000              	GLOBAL _zx_cy2aaddr
+663   0000              	GLOBAL _zx_cxy2saddr_callee
+664   0000              	GLOBAL _zx_cxy2saddr
+665   0000              	GLOBAL _zx_cxy2aaddr_callee
+666   0000              	GLOBAL _zx_cxy2aaddr
+667   0000              	GLOBAL _zx_bitmask2px_fastcall
+668   0000              	GLOBAL _zx_bitmask2px
+669   0000              	GLOBAL _zx_aaddrcup_fastcall
+670   0000              	GLOBAL _zx_aaddrcup
+671   0000              	GLOBAL _zx_aaddrcright_fastcall
+672   0000              	GLOBAL _zx_aaddrcright
+673   0000              	GLOBAL _zx_aaddrcleft_fastcall
+674   0000              	GLOBAL _zx_aaddrcleft
+675   0000              	GLOBAL _zx_aaddrcdown_fastcall
+676   0000              	GLOBAL _zx_aaddrcdown
+677   0000              	GLOBAL _zx_aaddr2saddr_fastcall
+678   0000              	GLOBAL _zx_aaddr2saddr
+679   0000              	GLOBAL _zx_aaddr2py_fastcall
+680   0000              	GLOBAL _zx_aaddr2py
+681   0000              	GLOBAL _zx_aaddr2px_fastcall
+682   0000              	GLOBAL _zx_aaddr2px
+683   0000              	GLOBAL _zx_aaddr2cy_fastcall
+684   0000              	GLOBAL _zx_aaddr2cy
+685   0000              	GLOBAL _zx_aaddr2cx_fastcall
+686   0000              	GLOBAL _zx_aaddr2cx
+687   0000              	GLOBAL _zx_visit_wc_pix_callee
+688   0000              	GLOBAL _zx_visit_wc_pix
+689   0000              	GLOBAL _zx_visit_wc_attr_callee
+690   0000              	GLOBAL _zx_visit_wc_attr
+691   0000              	GLOBAL _zx_scroll_wc_up_pix_callee
+692   0000              	GLOBAL _zx_scroll_wc_up_pix
+693   0000              	GLOBAL _zx_scroll_wc_up_attr_callee
+694   0000              	GLOBAL _zx_scroll_wc_up_attr
+695   0000              	GLOBAL _zx_scroll_wc_up_callee
+696   0000              	GLOBAL _zx_scroll_wc_up
+697   0000              	GLOBAL _zx_scroll_up_pix_callee
+698   0000              	GLOBAL _zx_scroll_up_pix
+699   0000              	GLOBAL _zx_scroll_up_attr_callee
+700   0000              	GLOBAL _zx_scroll_up_attr
+701   0000              	GLOBAL _zx_scroll_up_callee
+702   0000              	GLOBAL _zx_scroll_up
+703   0000              	GLOBAL _zx_cls_wc_pix_callee
+704   0000              	GLOBAL _zx_cls_wc_pix
+705   0000              	GLOBAL _zx_cls_wc_attr_callee
+706   0000              	GLOBAL _zx_cls_wc_attr
+707   0000              	GLOBAL _zx_cls_wc_callee
+708   0000              	GLOBAL _zx_cls_wc
+709   0000              	GLOBAL _zx_cls_pix_fastcall
+710   0000              	GLOBAL _zx_cls_pix
+711   0000              	GLOBAL _zx_cls_attr_fastcall
+712   0000              	GLOBAL _zx_cls_attr
+713   0000              	GLOBAL _zx_cls_fastcall
+714   0000              	GLOBAL _zx_cls
+715   0000              	GLOBAL _zx_border_fastcall
+716   0000              	GLOBAL _zx_border
+717   0000              	GLOBAL _zx_tape_verify_block_callee
+718   0000              	GLOBAL _zx_tape_verify_block
+719   0000              	GLOBAL _zx_tape_save_block_callee
+720   0000              	GLOBAL _zx_tape_save_block
+721   0000              	GLOBAL _zx_tape_load_block_callee
+722   0000              	GLOBAL _zx_tape_load_block
+723   0000              	GLOBAL _sp1_struct_ss_prototype
+724   0000              	GLOBAL _sp1_struct_cs_prototype
+725   0000              	GLOBAL _GLOBAL_ZX_PORT_7FFD
+726   0000              	GLOBAL _GLOBAL_ZX_PORT_1FFD
+727   0000              	GLOBAL _GLOBAL_ZX_PORT_FE
+728   0000              	GLOBAL _FullScreen
+729   0000              ;--------------------------------------------------------
+730   0000              ; special function registers
+731   0000              ;--------------------------------------------------------
+732   0000              defc _IO_FE	=	0x00fe
+733   0000              defc _IO_1FFD	=	0x1ffd
+734   0000              defc _IO_7FFD	=	0x7ffd
+735   0000              ;--------------------------------------------------------
+736   0000              ; ram data
+737   0000              ;--------------------------------------------------------
+738   0000              	SECTION bss_compiler
+739   0000              _Enemies:
+740   0000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      0020  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                        	DEFS 60
+741   003C              _CurrentLevel:
+742   003C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      005C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      007C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      009C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      00BC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      00DC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      00FC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      011C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      013C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      015C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      017C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      019C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      01BC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      01DC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      01FC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      021C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      023C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      025C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      027C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      029C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      02BC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      02DC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      02FC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      031C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                        	DEFS 768
+743   033C              _PlayerX:
+744   033C  00          	DEFS 1
+745   033D              _PlayerY:
+746   033D  00          	DEFS 1
+747   033E              ;--------------------------------------------------------
+748   033E              ; ram data
+749   033E              ;--------------------------------------------------------
+750   033E              
+751   033E              IF 0
+752   033E              
+753   033E              ; .area _INITIALIZED removed by z88dk
+754   033E              
+755   033E              
+756   033E              ENDIF
+757   033E              
+758   033E              ;--------------------------------------------------------
+759   033E              ; absolute external ram data
+760   033E              ;--------------------------------------------------------
+761   033E              	SECTION IGNORE
+762   0000              ;--------------------------------------------------------
+763   0000              ; global & static initialisations
+764   0000              ;--------------------------------------------------------
+765   0000              	SECTION code_crt_init
+766   0000              ;--------------------------------------------------------
+767   0000              ; Home
+768   0000              ;--------------------------------------------------------
+769   0000              	SECTION IGNORE
+770   0000              ;--------------------------------------------------------
+771   0000              ; code
+772   0000              ;--------------------------------------------------------
+773   0000              	SECTION code_compiler
+774   0000              ;	---------------------------------
+775   0000              ; Function IsTileWalkable
+776   0000              ; ---------------------------------
+777   0000              _IsTileWalkable:
+778   0000  CD 00 00    	call	___sdcc_enter_ix
+779   0003  DD 5E 05    	ld	e,(ix+5)
+780   0006  16 00       	ld	d,0x00
+781   0008  EB          	ex	de, hl
+782   0009  29          	add	hl, hl
+783   000A  29          	add	hl, hl
+784   000B  29          	add	hl, hl
+785   000C  29          	add	hl, hl
+786   000D  29          	add	hl, hl
+787   000E  EB          	ex	de, hl
+788   000F  DD 6E 04    	ld	l,(ix+4)
+789   0012  26 00       	ld	h,0x00
+790   0014  19          	add	hl, de
+791   0015  11 3C 00    	ld	de,_CurrentLevel
+792   0018  19          	add	hl, de
+793   0019  7E          	ld	a, (hl)
+794   001A  FE 20       	cp	a,0x20
+795   001C  28 0A       	jr	Z,l_IsTileWalkable_00101
+796   001E  FE 23       	cp	a,0x23
+797   0020  28 2E       	jr	Z,l_IsTileWalkable_00103
+798   0022  D6 2A       	sub	a,0x2a
+799   0024  28 06       	jr	Z,l_IsTileWalkable_00102
+800   0026  18 2C       	jr	l_IsTileWalkable_00104
+801   0028              l_IsTileWalkable_00101:
+802   0028  2E 01       	ld	l,0x01
+803   002A  18 2A       	jr	l_IsTileWalkable_00105
+804   002C              l_IsTileWalkable_00102:
+805   002C  36 20       	ld	(hl),0x20
+806   002E  DD 5E 04    	ld	e,(ix+4)
+807   0031  16 00       	ld	d,0x00
+808   0033  DD 4E 05    	ld	c,(ix+5)
+809   0036  06 00       	ld	b,0x00
+810   0038  21 89 00    	ld	hl,_EmptyTile
+811   003B  E5          	push	hl
+812   003C  21 47 00    	ld	hl,0x0047
+813   003F  E5          	push	hl
+814   0040  D5          	push	de
+815   0041  C5          	push	bc
+816   0042  CD 00 00    	call	_sp1_PrintAt_callee
+817   0045  11 00 00    	ld	de,_bfx_7
+818   0048  EB          	ex	de, hl
+819   0049  CD 00 00    	call	_bit_beepfx_fastcall
+820   004C  2E 01       	ld	l,0x01
+821   004E  18 06       	jr	l_IsTileWalkable_00105
+822   0050              l_IsTileWalkable_00103:
+823   0050  2E 00       	ld	l,0x00
+824   0052  18 02       	jr	l_IsTileWalkable_00105
+825   0054              l_IsTileWalkable_00104:
+826   0054  2E 00       	ld	l,0x00
+827   0056              l_IsTileWalkable_00105:
+828   0056  DD E1       	pop	ix
+829   0058  C9          	ret
+830   0059              	SECTION rodata_compiler
+831   0000              _enemySprite:
+832   0000  FF          	DEFB +0xff
+833   0001  00          	DEFB +0x00
+834   0002  FF          	DEFB +0xff
+835   0003  00          	DEFB +0x00
+836   0004  FF          	DEFB +0xff
+837   0005  00          	DEFB +0x00
+838   0006  FF          	DEFB +0xff
+839   0007  00          	DEFB +0x00
+840   0008  FF          	DEFB +0xff
+841   0009  00          	DEFB +0x00
+842   000A  FF          	DEFB +0xff
+843   000B  00          	DEFB +0x00
+844   000C  FF          	DEFB +0xff
+845   000D  00          	DEFB +0x00
+846   000E  3F          	DEFB +0x3f
+847   000F  80          	DEFB +0x80
+848   0010  1F          	DEFB +0x1f
+849   0011  40          	DEFB +0x40
+850   0012  8F          	DEFB +0x8f
+851   0013  20          	DEFB +0x20
+852   0014  C7          	DEFB +0xc7
+853   0015  10          	DEFB +0x10
+854   0016  E3          	DEFB +0xe3
+855   0017  08          	DEFB +0x08
+856   0018  F1          	DEFB +0xf1
+857   0019  04          	DEFB +0x04
+858   001A  F8          	DEFB +0xf8
+859   001B  02          	DEFB +0x02
+860   001C  FC          	DEFB +0xfc
+861   001D  01          	DEFB +0x01
+862   001E  FC          	DEFB +0xfc
+863   001F  01          	DEFB +0x01
+864   0020  F8          	DEFB +0xf8
+865   0021  02          	DEFB +0x02
+866   0022  F1          	DEFB +0xf1
+867   0023  04          	DEFB +0x04
+868   0024  E3          	DEFB +0xe3
+869   0025  08          	DEFB +0x08
+870   0026  C7          	DEFB +0xc7
+871   0027  10          	DEFB +0x10
+872   0028  8F          	DEFB +0x8f
+873   0029  20          	DEFB +0x20
+874   002A  1F          	DEFB +0x1f
+875   002B  40          	DEFB +0x40
+876   002C  3F          	DEFB +0x3f
+877   002D  80          	DEFB +0x80
+878   002E  FF          	DEFB +0xff
+879   002F  00          	DEFB +0x00
+880   0030  FF          	DEFB +0xff
+881   0031  00          	DEFB +0x00
+882   0032  FF          	DEFB +0xff
+883   0033  00          	DEFB +0x00
+884   0034  FF          	DEFB +0xff
+885   0035  00          	DEFB +0x00
+886   0036  FF          	DEFB +0xff
+887   0037  00          	DEFB +0x00
+888   0038  FF          	DEFB +0xff
+889   0039  00          	DEFB +0x00
+890   003A  FF          	DEFB +0xff
+891   003B  00          	DEFB +0x00
+892   003C  FC          	DEFB +0xfc
+893   003D  01          	DEFB +0x01
+894   003E  F8          	DEFB +0xf8
+895   003F  02          	DEFB +0x02
+896   0040  F1          	DEFB +0xf1
+897   0041  04          	DEFB +0x04
+898   0042  E3          	DEFB +0xe3
+899   0043  08          	DEFB +0x08
+900   0044  C7          	DEFB +0xc7
+901   0045  10          	DEFB +0x10
+902   0046  8F          	DEFB +0x8f
+903   0047  20          	DEFB +0x20
+904   0048  1F          	DEFB +0x1f
+905   0049  40          	DEFB +0x40
+906   004A  3F          	DEFB +0x3f
+907   004B  80          	DEFB +0x80
+908   004C  3F          	DEFB +0x3f
+909   004D  80          	DEFB +0x80
+910   004E  1F          	DEFB +0x1f
+911   004F  40          	DEFB +0x40
+912   0050  8F          	DEFB +0x8f
+913   0051  20          	DEFB +0x20
+914   0052  C7          	DEFB +0xc7
+915   0053  10          	DEFB +0x10
+916   0054  E3          	DEFB +0xe3
+917   0055  08          	DEFB +0x08
+918   0056  F1          	DEFB +0xf1
+919   0057  04          	DEFB +0x04
+920   0058  F8          	DEFB +0xf8
+921   0059  02          	DEFB +0x02
+922   005A  FC          	DEFB +0xfc
+923   005B  01          	DEFB +0x01
+924   005C  FF          	DEFB +0xff
+925   005D  00          	DEFB +0x00
+926   005E  FF          	DEFB +0xff
+927   005F  00          	DEFB +0x00
+928   0060  FF          	DEFB +0xff
+929   0061  00          	DEFB +0x00
+930   0062  FF          	DEFB +0xff
+931   0063  00          	DEFB +0x00
+932   0064  FF          	DEFB +0xff
+933   0065  00          	DEFB +0x00
+934   0066  FF          	DEFB +0xff
+935   0067  00          	DEFB +0x00
+936   0068  FF          	DEFB +0xff
+937   0069  00          	DEFB +0x00
+938   006A              _playerSprite:
+939   006A  00          	DEFB +0x00
+940   006B  00          	DEFB +0x00
+941   006C  00          	DEFB +0x00
+942   006D  00          	DEFB +0x00
+943   006E  00          	DEFB +0x00
+944   006F  00          	DEFB +0x00
+945   0070  00          	DEFB +0x00
+946   0071  3C          	DEFB +0x3c
+947   0072  7E          	DEFB +0x7e
+948   0073  E7          	DEFB +0xe7
+949   0074  D7          	DEFB +0xd7
+950   0075  FF          	DEFB +0xff
+951   0076  FF          	DEFB +0xff
+952   0077  1E          	DEFB +0x1e
+953   0078  3C          	DEFB +0x3c
+954   0079  00          	DEFB +0x00
+955   007A  00          	DEFB +0x00
+956   007B  00          	DEFB +0x00
+957   007C  00          	DEFB +0x00
+958   007D  00          	DEFB +0x00
+959   007E  00          	DEFB +0x00
+960   007F  00          	DEFB +0x00
+961   0080  00          	DEFB +0x00
+962   0081              _DotTile:
+963   0081  00          	DEFB +0x00
+964   0082  00          	DEFB +0x00
+965   0083  3C          	DEFB +0x3c
+966   0084  3C          	DEFB +0x3c
+967   0085  3C          	DEFB +0x3c
+968   0086  3C          	DEFB +0x3c
+969   0087  00          	DEFB +0x00
+970   0088  00          	DEFB +0x00
+971   0089              _EmptyTile:
+972   0089  00          	DEFB +0x00
+973   008A  00          	DEFB +0x00
+974   008B  00          	DEFB +0x00
+975   008C  00          	DEFB +0x00
+976   008D  00          	DEFB +0x00
+977   008E  00          	DEFB +0x00
+978   008F  00          	DEFB +0x00
+979   0090  00          	DEFB +0x00
+980   0091              _WallTile:
+981   0091  00          	DEFB +0x00
+982   0092  DF          	DEFB +0xdf
+983   0093  8A          	DEFB +0x8a
+984   0094  55          	DEFB +0x55
+985   0095  00          	DEFB +0x00
+986   0096  FB          	DEFB +0xfb
+987   0097  51          	DEFB +0x51
+988   0098  AA          	DEFB +0xaa
+989   0099              _Level1:
+990   0099  23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 
+      00B9  23 2A 2A 2A 2A 2A 2A 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+                        	DEFM "#################################******                     "
+991   00D5  20 20 20 23 23 2A 23 23 23 23 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+      00F5  20 20 20 23 23 2A 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+                        	DEFM "   ##*#####                        ##*#                     "
+992   0111  20 20 20 20 20 20 20 23 23 2A 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+      0131  20 20 20 20 20 20 20 23 23 2A 23 20 20 20 20 70 20 20 20 20 20 20 20 20 20 20 20 20 
+                        	DEFM "       ##*#                            ##*#    p            "
+993   014D  20 20 20 20 20 20 20 20 20 20 20 23 23 2A 23 20 20 20 2A 20 2A 20 20 20 20 20 20 20 20 20 20 20 
+      016D  20 20 20 20 20 20 20 20 20 20 20 23 23 2A 23 20 20 23 2A 23 2A 23 20 20 20 20 20 20 
+                        	DEFM "           ##*#   * *                      ##*#  #*#*#      "
+994   0189  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 23 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 20 20 20 20 20 
+      01A9  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 23 23 23 23 23 23 23 23 23 23 23 20 
+                        	DEFM "               ##**********                    ############ "
+995   01C5  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 23 20 20 20 20 20 20 20 20 20 20 20 
+      01E5  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 23 20 20 20 20 20 20 20 
+                        	DEFM "                   ##                              ##       "
+996   0201  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 23 20 20 20 20 20 20 20 
+      0221  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 23 20 20 20 
+                        	DEFM "                       ##                              ##   "
+997   023D  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 23 20 20 20 
+      025D  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 
+                        	DEFM "                           ##                              #"
+998   0279  23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 
+      0299  23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+                        	DEFM "#                              ##                           "
+999   02B5  20 20 20 23 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+      02D5  20 20 20 23 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+                        	DEFM "   ##                              ##                       "
+1000  02F1  20 20 20 20 20 20 20 23 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+      0311  20 20 20 20 20 20 20 23 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+                        	DEFM "       ##                              ##                   "
+1001  032D  20 20 20 20 20 20 20 20 20 20 20 23 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+      034D  20 20 20 20 20 20 20 20 20 20 20 23 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
+                        	DEFM "           ##                              ##               "
+1002  0369  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 
+      0389  23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 
+                        	DEFM "               #################################"
+1003  0399  00          	DEFB 0x00
+1004  039A              	SECTION code_compiler
+1005  0059              ;	---------------------------------
+1006  0059              ; Function CheckCanMoveX
+1007  0059              ; ---------------------------------
+1008  0059              _CheckCanMoveX:
+1009  0059  CD 00 00    	call	___sdcc_enter_ix
+1010  005C  DD 4E 04    	ld	c,(ix+4)
+1011  005F  06 00       	ld	b,0x00
+1012  0061  DD 7E 06    	ld	a,(ix+6)
+1013  0064  5F          	ld	e, a
+1014  0065  17          	rla
+1015  0066  9F          	sbc	a, a
+1016  0067  57          	ld	d, a
+1017  0068  EB          	ex	de,hl
+1018  0069  09          	add	hl, bc
+1019  006A  4D          	ld	c, l
+1020  006B  06 03       	ld	b,0x03
+1021  006D              l_CheckCanMoveX_00119:
+1022  006D  CB 2C       	sra	h
+1023  006F  CB 19       	rr	c
+1024  0071  10 FA       	djnz	l_CheckCanMoveX_00119
+1025  0073  DD 46 05    	ld	b,(ix+5)
+1026  0076  CB 38       	srl	b
+1027  0078  CB 38       	srl	b
+1028  007A  CB 38       	srl	b
+1029  007C  DD 7E 05    	ld	a,(ix+5)
+1030  007F  E6 07       	and	a,0x07
+1031  0081  20 07       	jr	NZ,l_CheckCanMoveX_00102
+1032  0083  C5          	push	bc
+1033  0084  CD 00 00    	call	_IsTileWalkable
+1034  0087  F1          	pop	af
+1035  0088  18 1D       	jr	l_CheckCanMoveX_00104
+1036  008A              l_CheckCanMoveX_00102:
+1037  008A  C5          	push	bc
+1038  008B  C5          	push	bc
+1039  008C  CD 00 00    	call	_IsTileWalkable
+1040  008F  F1          	pop	af
+1041  0090  5D          	ld	e, l
+1042  0091  C1          	pop	bc
+1043  0092  CB 43       	bit	0, e
+1044  0094  28 0B       	jr	Z,l_CheckCanMoveX_00106
+1045  0096  04          	inc	b
+1046  0097  C5          	push	bc
+1047  0098  CD 00 00    	call	_IsTileWalkable
+1048  009B  F1          	pop	af
+1049  009C  4D          	ld	c, l
+1050  009D  CB 41       	bit	0, c
+1051  009F  20 04       	jr	NZ,l_CheckCanMoveX_00107
+1052  00A1              l_CheckCanMoveX_00106:
+1053  00A1  2E 00       	ld	l,0x00
+1054  00A3  18 02       	jr	l_CheckCanMoveX_00108
+1055  00A5              l_CheckCanMoveX_00107:
+1056  00A5  2E 01       	ld	l,0x01
+1057  00A7              l_CheckCanMoveX_00108:
+1058  00A7              l_CheckCanMoveX_00104:
+1059  00A7  DD E1       	pop	ix
+1060  00A9  C9          	ret
+1061  00AA              	SECTION code_compiler
+1062  00AA              ;	---------------------------------
+1063  00AA              ; Function CheckCanMoveY
+1064  00AA              ; ---------------------------------
+1065  00AA              _CheckCanMoveY:
+1066  00AA  CD 00 00    	call	___sdcc_enter_ix
+1067  00AD  DD 4E 04    	ld	c,(ix+4)
+1068  00B0  CB 39       	srl	c
+1069  00B2  CB 39       	srl	c
+1070  00B4  CB 39       	srl	c
+1071  00B6  DD 5E 05    	ld	e,(ix+5)
+1072  00B9  16 00       	ld	d,0x00
+1073  00BB  DD 7E 06    	ld	a,(ix+6)
+1074  00BE  F5          	push	af
+1075  00BF  17          	rla
+1076  00C0  9F          	sbc	a, a
+1077  00C1  47          	ld	b, a
+1078  00C2  F1          	pop	af
+1079  00C3  6F          	ld	l, a
+1080  00C4  60          	ld	h, b
+1081  00C5  19          	add	hl, de
+1082  00C6  06 03       	ld	b,0x03
+1083  00C8              l_CheckCanMoveY_00119:
+1084  00C8  CB 2C       	sra	h
+1085  00CA  CB 1D       	rr	l
+1086  00CC  10 FA       	djnz	l_CheckCanMoveY_00119
+1087  00CE  45          	ld	b, l
+1088  00CF  DD 7E 04    	ld	a,(ix+4)
+1089  00D2  E6 07       	and	a,0x07
+1090  00D4  20 07       	jr	NZ,l_CheckCanMoveY_00102
+1091  00D6  C5          	push	bc
+1092  00D7  CD 00 00    	call	_IsTileWalkable
+1093  00DA  F1          	pop	af
+1094  00DB  18 21       	jr	l_CheckCanMoveY_00104
+1095  00DD              l_CheckCanMoveY_00102:
+1096  00DD  C5          	push	bc
+1097  00DE  C5          	push	bc
+1098  00DF  CD 00 00    	call	_IsTileWalkable
+1099  00E2  F1          	pop	af
+1100  00E3  5D          	ld	e, l
+1101  00E4  C1          	pop	bc
+1102  00E5  CB 43       	bit	0, e
+1103  00E7  28 0F       	jr	Z,l_CheckCanMoveY_00106
+1104  00E9  79          	ld	a, c
+1105  00EA  3C          	inc	a
+1106  00EB  C5          	push	bc
+1107  00EC  33          	inc	sp
+1108  00ED  F5          	push	af
+1109  00EE  33          	inc	sp
+1110  00EF  CD 00 00    	call	_IsTileWalkable
+1111  00F2  F1          	pop	af
+1112  00F3  4D          	ld	c, l
+1113  00F4  CB 41       	bit	0, c
+1114  00F6  20 04       	jr	NZ,l_CheckCanMoveY_00107
+1115  00F8              l_CheckCanMoveY_00106:
+1116  00F8  2E 00       	ld	l,0x00
+1117  00FA  18 02       	jr	l_CheckCanMoveY_00108
+1118  00FC              l_CheckCanMoveY_00107:
+1119  00FC  2E 01       	ld	l,0x01
+1120  00FE              l_CheckCanMoveY_00108:
+1121  00FE              l_CheckCanMoveY_00104:
+1122  00FE  DD E1       	pop	ix
+1123  0100  C9          	ret
+1124  0101              	SECTION code_compiler
+1125  0101              ;	---------------------------------
+1126  0101              ; Function DrawLevel
+1127  0101              ; ---------------------------------
+1128  0101              _DrawLevel:
+1129  0101  CD 00 00    	call	___sdcc_enter_ix
+1130  0104  F5          	push	af
+1131  0105  01 3C 00    	ld	bc,_CurrentLevel+0
+1132  0108  1E 00       	ld	e,0x00
+1133  010A              l_DrawLevel_00112:
+1134  010A  7B          	ld	a, e
+1135  010B  D6 18       	sub	a,0x18
+1136  010D  D2 A3 01    	jp	NC, l_DrawLevel_00114
+1137  0110  16 00       	ld	d,0x00
+1138  0112              l_DrawLevel_00109:
+1139  0112  7A          	ld	a, d
+1140  0113  D6 20       	sub	a,0x20
+1141  0115  D2 9F 01    	jp	NC, l_DrawLevel_00124
+1142  0118  0A          	ld	a, (bc)
+1143  0119  DD 72 FE    	ld	(ix-2),d
+1144  011C  DD 36 FF 00 	ld	(ix-1),0x00
+1145  0120  6B          	ld	l, e
+1146  0121  26 00       	ld	h,0x00
+1147  0123  FE 20       	cp	a,0x20
+1148  0125  28 0E       	jr	Z,l_DrawLevel_00101
+1149  0127  FE 23       	cp	a,0x23
+1150  0129  28 26       	jr	Z,l_DrawLevel_00102
+1151  012B  FE 2A       	cp	a,0x2a
+1152  012D  28 3E       	jr	Z,l_DrawLevel_00103
+1153  012F  D6 70       	sub	a,0x70
+1154  0131  28 56       	jr	Z,l_DrawLevel_00104
+1155  0133  18 65       	jr	l_DrawLevel_00105
+1156  0135              l_DrawLevel_00101:
+1157  0135  C5          	push	bc
+1158  0136  D5          	push	de
+1159  0137  E5          	push	hl
+1160  0138  21 89 00    	ld	hl,_EmptyTile
+1161  013B  E3          	ex	(sp), hl
+1162  013C  E5          	push	hl
+1163  013D  21 47 00    	ld	hl,0x0047
+1164  0140  E3          	ex	(sp), hl
+1165  0141  E5          	push	hl
+1166  0142  DD 6E FE    	ld	l,(ix-2)
+1167  0145  DD 66 FF    	ld	h,(ix-1)
+1168  0148  E3          	ex	(sp), hl
+1169  0149  E5          	push	hl
+1170  014A  CD 00 00    	call	_sp1_PrintAt_callee
+1171  014D  D1          	pop	de
+1172  014E  C1          	pop	bc
+1173  014F  18 49       	jr	l_DrawLevel_00105
+1174  0151              l_DrawLevel_00102:
+1175  0151  C5          	push	bc
+1176  0152  D5          	push	de
+1177  0153  E5          	push	hl
+1178  0154  21 91 00    	ld	hl,_WallTile
+1179  0157  E3          	ex	(sp), hl
+1180  0158  E5          	push	hl
+1181  0159  21 0D 00    	ld	hl,0x000d
+1182  015C  E3          	ex	(sp), hl
+1183  015D  E5          	push	hl
+1184  015E  DD 6E FE    	ld	l,(ix-2)
+1185  0161  DD 66 FF    	ld	h,(ix-1)
+1186  0164  E3          	ex	(sp), hl
+1187  0165  E5          	push	hl
+1188  0166  CD 00 00    	call	_sp1_PrintAt_callee
+1189  0169  D1          	pop	de
+1190  016A  C1          	pop	bc
+1191  016B  18 2D       	jr	l_DrawLevel_00105
+1192  016D              l_DrawLevel_00103:
+1193  016D  C5          	push	bc
+1194  016E  D5          	push	de
+1195  016F  E5          	push	hl
+1196  0170  21 81 00    	ld	hl,_DotTile
+1197  0173  E3          	ex	(sp), hl
+1198  0174  E5          	push	hl
+1199  0175  21 46 00    	ld	hl,0x0046
+1200  0178  E3          	ex	(sp), hl
+1201  0179  E5          	push	hl
+1202  017A  DD 6E FE    	ld	l,(ix-2)
+1203  017D  DD 66 FF    	ld	h,(ix-1)
+1204  0180  E3          	ex	(sp), hl
+1205  0181  E5          	push	hl
+1206  0182  CD 00 00    	call	_sp1_PrintAt_callee
+1207  0185  D1          	pop	de
+1208  0186  C1          	pop	bc
+1209  0187  18 11       	jr	l_DrawLevel_00105
+1210  0189              l_DrawLevel_00104:
+1211  0189  7A          	ld	a, d
+1212  018A  87          	add	a, a
+1213  018B  87          	add	a, a
+1214  018C  87          	add	a, a
+1215  018D  32 3C 03    	ld	(_PlayerX),a
+1216  0190  7B          	ld	a, e
+1217  0191  87          	add	a, a
+1218  0192  87          	add	a, a
+1219  0193  87          	add	a, a
+1220  0194  32 3D 03    	ld	(_PlayerY),a
+1221  0197  3E 20       	ld	a,0x20
+1222  0199  02          	ld	(bc), a
+1223  019A              l_DrawLevel_00105:
+1224  019A  03          	inc	bc
+1225  019B  14          	inc	d
+1226  019C  C3 12 01    	jp	l_DrawLevel_00109
+1227  019F              l_DrawLevel_00124:
+1228  019F  1C          	inc	e
+1229  01A0  C3 0A 01    	jp	l_DrawLevel_00112
+1230  01A3              l_DrawLevel_00114:
+1231  01A3  F1          	pop	af
+1232  01A4  DD E1       	pop	ix
+1233  01A6  C9          	ret
+1234  01A7              	SECTION code_compiler
+1235  01A7              ;	---------------------------------
+1236  01A7              ; Function main
+1237  01A7              ; ---------------------------------
+1238  01A7              _main:
+1239  01A7  CD 00 00    	call	___sdcc_enter_ix
+1240  01AA  F5          	push	af
+1241  01AB  F5          	push	af
+1242  01AC  F5          	push	af
+1243  01AD  3B          	dec	sp
+1244  01AE  2E 00       	ld	l,0x00
+1245  01B0  CD 00 00    	call	_zx_border_fastcall
+1246  01B3  CD 00 00    	call	_InitSprites
+1247  01B6  21 6A 00    	ld	hl,_playerSprite
+1248  01B9  E5          	push	hl
+1249  01BA  CD 00 00    	call	_CreateSprite8x8
+1250  01BD  F1          	pop	af
+1251  01BE  EB          	ex	de, hl
+1252  01BF  33          	inc	sp
+1253  01C0  33          	inc	sp
+1254  01C1  D5          	push	de
+1255  01C2  11 3C 00    	ld	de,_CurrentLevel
+1256  01C5  21 99 00    	ld	hl,_Level1
+1257  01C8  01 01 03    	ld	bc,0x0301
+1258  01CB  ED B0       	ldir
+1259  01CD  CD 01 01    	call	_DrawLevel
+1260  01D0  0E 00       	ld	c,0x00
+1261  01D2              l_main_00133:
+1262  01D2  79          	ld	a, c
+1263  01D3  D6 0A       	sub	a,0x0a
+1264  01D5  30 47       	jr	NC,l_main_00138
+1265  01D7  06 00       	ld	b,0x00
+1266  01D9  69          	ld	l, c
+1267  01DA  60          	ld	h, b
+1268  01DB  29          	add	hl, hl
+1269  01DC  09          	add	hl, bc
+1270  01DD  29          	add	hl, hl
+1271  01DE  EB          	ex	de, hl
+1272  01DF  21 00 00    	ld	hl,_Enemies
+1273  01E2  19          	add	hl, de
+1274  01E3  EB          	ex	de, hl
+1275  01E4  79          	ld	a, c
+1276  01E5  87          	add	a, a
+1277  01E6  81          	add	a, c
+1278  01E7  87          	add	a, a
+1279  01E8  87          	add	a, a
+1280  01E9  87          	add	a, a
+1281  01EA  12          	ld	(de), a
+1282  01EB  6B          	ld	l, e
+1283  01EC  62          	ld	h, d
+1284  01ED  23          	inc	hl
+1285  01EE  36 00       	ld	(hl),0x00
+1286  01F0  6B          	ld	l, e
+1287  01F1  62          	ld	h, d
+1288  01F2  23          	inc	hl
+1289  01F3  23          	inc	hl
+1290  01F4  36 01       	ld	(hl),0x01
+1291  01F6  6B          	ld	l, e
+1292  01F7  62          	ld	h, d
+1293  01F8  23          	inc	hl
+1294  01F9  23          	inc	hl
+1295  01FA  23          	inc	hl
+1296  01FB  36 01       	ld	(hl),0x01
+1297  01FD  21 04 00    	ld	hl,0x0004
+1298  0200  19          	add	hl, de
+1299  0201  DD 75 FE    	ld	(ix-2),l
+1300  0204  DD 74 FF    	ld	(ix-1),h
+1301  0207  C5          	push	bc
+1302  0208  21 00 00    	ld	hl,_enemySprite
+1303  020B  E5          	push	hl
+1304  020C  CD 00 00    	call	_CreateMaskedSprite16x16
+1305  020F  F1          	pop	af
+1306  0210  EB          	ex	de, hl
+1307  0211  C1          	pop	bc
+1308  0212  DD 6E FE    	ld	l,(ix-2)
+1309  0215  DD 66 FF    	ld	h,(ix-1)
+1310  0218  73          	ld	(hl), e
+1311  0219  23          	inc	hl
+1312  021A  72          	ld	(hl), d
+1313  021B  0C          	inc	c
+1314  021C  18 B4       	jr	l_main_00133
+1315  021E              l_main_00138:
+1316  021E  76          	halt
+1317  021F  11 00 00    	ld	de,_Enemies
+1318  0222  AF          	xor	a, a
+1319  0223  DD 77 FF    	ld	(ix-1),a
+1320  0226              l_main_00136:
+1321  0226  DD 7E FF    	ld	a,(ix-1)
+1322  0229  D6 0A       	sub	a,0x0a
+1323  022B  D2 B5 02    	jp	NC, l_main_00112
+1324  022E  1A          	ld	a, (de)
+1325  022F  4F          	ld	c, a
+1326  0230  21 02 00    	ld	hl,0x0002
+1327  0233  19          	add	hl, de
+1328  0234  DD 75 FB    	ld	(ix-5),l
+1329  0237  DD 74 FC    	ld	(ix-4),h
+1330  023A  79          	ld	a, c
+1331  023B  B7          	or	a, a
+1332  023C  20 08       	jr	NZ,l_main_00105
+1333  023E  C1          	pop	bc
+1334  023F  E1          	pop	hl
+1335  0240  E5          	push	hl
+1336  0241  C5          	push	bc
+1337  0242  36 01       	ld	(hl),0x01
+1338  0244  18 0B       	jr	l_main_00106
+1339  0246              l_main_00105:
+1340  0246  79          	ld	a, c
+1341  0247  D6 EF       	sub	a,0xef
+1342  0249  20 06       	jr	NZ,l_main_00106
+1343  024B  C1          	pop	bc
+1344  024C  E1          	pop	hl
+1345  024D  E5          	push	hl
+1346  024E  C5          	push	bc
+1347  024F  36 FF       	ld	(hl),0xff
+1348  0251              l_main_00106:
+1349  0251  4B          	ld	c, e
+1350  0252  42          	ld	b, d
+1351  0253  03          	inc	bc
+1352  0254  0A          	ld	a, (bc)
+1353  0255  6F          	ld	l, a
+1354  0256  7B          	ld	a, e
+1355  0257  C6 03       	add	a,0x03
+1356  0259  DD 77 FD    	ld	(ix-3),a
+1357  025C  7A          	ld	a, d
+1358  025D  CE 00       	adc	a,0x00
+1359  025F  DD 77 FE    	ld	(ix-2),a
+1360  0262  7D          	ld	a, l
+1361  0263  B7          	or	a, a
+1362  0264  20 0A       	jr	NZ,l_main_00110
+1363  0266  DD 6E FD    	ld	l,(ix-3)
+1364  0269  DD 66 FE    	ld	h,(ix-2)
+1365  026C  36 01       	ld	(hl),0x01
+1366  026E  18 0D       	jr	l_main_00111
+1367  0270              l_main_00110:
+1368  0270  7D          	ld	a, l
+1369  0271  D6 B0       	sub	a,0xb0
+1370  0273  20 08       	jr	NZ,l_main_00111
+1371  0275  DD 6E FD    	ld	l,(ix-3)
+1372  0278  DD 66 FE    	ld	h,(ix-2)
+1373  027B  36 FF       	ld	(hl),0xff
+1374  027D              l_main_00111:
+1375  027D  1A          	ld	a, (de)
+1376  027E  DD 6E FB    	ld	l,(ix-5)
+1377  0281  DD 66 FC    	ld	h,(ix-4)
+1378  0284  6E          	ld	l, (hl)
+1379  0285  85          	add	a, l
+1380  0286  12          	ld	(de), a
+1381  0287  0A          	ld	a, (bc)
+1382  0288  DD 6E FD    	ld	l,(ix-3)
+1383  028B  DD 66 FE    	ld	h,(ix-2)
+1384  028E  6E          	ld	l, (hl)
+1385  028F  85          	add	a, l
+1386  0290  02          	ld	(bc), a
+1387  0291  6B          	ld	l, e
+1388  0292  62          	ld	h, d
+1389  0293  23          	inc	hl
+1390  0294  23          	inc	hl
+1391  0295  23          	inc	hl
+1392  0296  23          	inc	hl
+1393  0297  7E          	ld	a, (hl)
+1394  0298  23          	inc	hl
+1395  0299  66          	ld	h, (hl)
+1396  029A  6F          	ld	l, a
+1397  029B  0A          	ld	a, (bc)
+1398  029C  47          	ld	b, a
+1399  029D  1A          	ld	a, (de)
+1400  029E  D5          	push	de
+1401  029F  E5          	push	hl
+1402  02A0  C5          	push	bc
+1403  02A1  33          	inc	sp
+1404  02A2  F5          	push	af
+1405  02A3  33          	inc	sp
+1406  02A4  CD 00 00    	call	_PutSprite
+1407  02A7  F1          	pop	af
+1408  02A8  F1          	pop	af
+1409  02A9  D1          	pop	de
+1410  02AA  21 06 00    	ld	hl,0x0006
+1411  02AD  19          	add	hl, de
+1412  02AE  EB          	ex	de, hl
+1413  02AF  DD 34 FF    	inc	(ix-1)
+1414  02B2  C3 26 02    	jp	l_main_00136
+1415  02B5              l_main_00112:
+1416  02B5  21 FB 01    	ld	hl,0x01fb
+1417  02B8  CD 00 00    	call	_in_key_pressed_fastcall
+1418  02BB  EB          	ex	de, hl
+1419  02BC  7A          	ld	a, d
+1420  02BD  B3          	or	a, e
+1421  02BE  28 1E       	jr	Z,l_main_00120
+1422  02C0  3E FF       	ld	a,0xff
+1423  02C2  F5          	push	af
+1424  02C3  33          	inc	sp
+1425  02C4  3A 3D 03    	ld	a,(_PlayerY)
+1426  02C7  F5          	push	af
+1427  02C8  33          	inc	sp
+1428  02C9  3A 3C 03    	ld	a,(_PlayerX)
+1429  02CC  F5          	push	af
+1430  02CD  33          	inc	sp
+1431  02CE  CD AA 00    	call	_CheckCanMoveY
+1432  02D1  F1          	pop	af
+1433  02D2  33          	inc	sp
+1434  02D3  4D          	ld	c, l
+1435  02D4  CB 41       	bit	0, c
+1436  02D6  28 2D       	jr	Z,l_main_00121
+1437  02D8  21 3D 03    	ld	hl,_PlayerY
+1438  02DB  35          	dec	(hl)
+1439  02DC  18 27       	jr	l_main_00121
+1440  02DE              l_main_00120:
+1441  02DE  21 FD 01    	ld	hl,0x01fd
+1442  02E1  CD 00 00    	call	_in_key_pressed_fastcall
+1443  02E4  EB          	ex	de, hl
+1444  02E5  7A          	ld	a, d
+1445  02E6  B3          	or	a, e
+1446  02E7  28 1C       	jr	Z,l_main_00121
+1447  02E9  3E 08       	ld	a,0x08
+1448  02EB  F5          	push	af
+1449  02EC  33          	inc	sp
+1450  02ED  3A 3D 03    	ld	a,(_PlayerY)
+1451  02F0  F5          	push	af
+1452  02F1  33          	inc	sp
+1453  02F2  3A 3C 03    	ld	a,(_PlayerX)
+1454  02F5  F5          	push	af
+1455  02F6  33          	inc	sp
+1456  02F7  CD AA 00    	call	_CheckCanMoveY
+1457  02FA  F1          	pop	af
+1458  02FB  33          	inc	sp
+1459  02FC  4D          	ld	c, l
+1460  02FD  CB 41       	bit	0, c
+1461  02FF  28 04       	jr	Z,l_main_00121
+1462  0301  21 3D 03    	ld	hl,_PlayerY
+1463  0304  34          	inc	(hl)
+1464  0305              l_main_00121:
+1465  0305  21 DF 02    	ld	hl,0x02df
+1466  0308  CD 00 00    	call	_in_key_pressed_fastcall
+1467  030B  EB          	ex	de, hl
+1468  030C  7A          	ld	a, d
+1469  030D  B3          	or	a, e
+1470  030E  28 1E       	jr	Z,l_main_00129
+1471  0310  3E FF       	ld	a,0xff
+1472  0312  F5          	push	af
+1473  0313  33          	inc	sp
+1474  0314  3A 3D 03    	ld	a,(_PlayerY)
+1475  0317  F5          	push	af
+1476  0318  33          	inc	sp
+1477  0319  3A 3C 03    	ld	a,(_PlayerX)
+1478  031C  F5          	push	af
+1479  031D  33          	inc	sp
+1480  031E  CD 59 00    	call	_CheckCanMoveX
+1481  0321  F1          	pop	af
+1482  0322  33          	inc	sp
+1483  0323  4D          	ld	c, l
+1484  0324  CB 41       	bit	0, c
+1485  0326  28 2D       	jr	Z,l_main_00130
+1486  0328  21 3C 03    	ld	hl,_PlayerX
+1487  032B  35          	dec	(hl)
+1488  032C  18 27       	jr	l_main_00130
+1489  032E              l_main_00129:
+1490  032E  21 DF 01    	ld	hl,0x01df
+1491  0331  CD 00 00    	call	_in_key_pressed_fastcall
+1492  0334  EB          	ex	de, hl
+1493  0335  7A          	ld	a, d
+1494  0336  B3          	or	a, e
+1495  0337  28 1C       	jr	Z,l_main_00130
+1496  0339  3E 08       	ld	a,0x08
+1497  033B  F5          	push	af
+1498  033C  33          	inc	sp
+1499  033D  3A 3D 03    	ld	a,(_PlayerY)
+1500  0340  F5          	push	af
+1501  0341  33          	inc	sp
+1502  0342  3A 3C 03    	ld	a,(_PlayerX)
+1503  0345  F5          	push	af
+1504  0346  33          	inc	sp
+1505  0347  CD 59 00    	call	_CheckCanMoveX
+1506  034A  F1          	pop	af
+1507  034B  33          	inc	sp
+1508  034C  4D          	ld	c, l
+1509  034D  CB 41       	bit	0, c
+1510  034F  28 04       	jr	Z,l_main_00130
+1511  0351  21 3C 03    	ld	hl,_PlayerX
+1512  0354  34          	inc	(hl)
+1513  0355              l_main_00130:
+1514  0355  E1          	pop	hl
+1515  0356  E5          	push	hl
+1516  0357  E5          	push	hl
+1517  0358  3A 3D 03    	ld	a,(_PlayerY)
+1518  035B  F5          	push	af
+1519  035C  33          	inc	sp
+1520  035D  3A 3C 03    	ld	a,(_PlayerX)
+1521  0360  F5          	push	af
+1522  0361  33          	inc	sp
+1523  0362  CD 00 00    	call	_PutSprite
+1524  0365  F1          	pop	af
+1525  0366  F1          	pop	af
+1526  0367  CD 00 00    	call	_sp1_UpdateNow
+1527  036A  C3 1E 02    	jp	l_main_00138
+1528  036D              	SECTION IGNORE
+1529  0000              

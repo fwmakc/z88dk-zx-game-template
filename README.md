@@ -1,3 +1,7 @@
-# game_zx
+# Игра на ZX
 
-First unzip tools \*.zip files to /\* folder.
+Игра на ZX на языке C++
+
+Распакуйте архивы из каталога tools \*.zip в каталоги /\*
+
+Затем запустите compile.cmd или run.cmd
